@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		
+		
+	
+
+		function guess(){
+			var resNoChange = 0;
+			var resChange = 0;
+			var val = document.getElementById("count").value;
+			for(var i =0;i < val ;i++){
+				var arr = [],index = randomNum(0,2);
+				if(index == 0){
+					arr[0] = 1;
+					arr[1] = 0;
+					arr[2] = 0;
+				}else if(index == 1){
+					arr[0] = 0;
+					arr[1] = 1;
+					arr[2] = 0;
+				}else{
+					arr[0] = 0;
+					arr[1] = 0;
+					arr[2] = 1;
+				}
+				var guess = randomNum(0,2);
+				if(arr[guess] == 1){
+					resNoChange++;
+				}else{
+					var change = randomNum(0,1);
+					resChange++;
+					
+				}
+				
+			}
+
+			document.getElementById("nochange").innerHTML = resNoChange;
+			document.getElementById("change").innerHTML = resChange;
+
+		}
+
+		function randomNum(maxNum, minNum, decimalNum) {
+            var max = 0, min = 0;
+            minNum <= maxNum ? (min = minNum, max = maxNum) : (min = maxNum, max = minNum);
+            switch (arguments.length) {
+                case 1:
+                    return Math.floor(Math.random() * (max + 1));
+                    break;
+                case 2:
+                    return Math.floor(Math.random() * (max - min + 1) + min);
+                    break;
+                case 3:
+                    return (Math.random() * (max - min) + min).toFixed(decimalNum);
+                    break;
+                default:
+                    return Math.random();
+                    break;
+            }
+        }
+
+        window.onload = function(){
+        	// console.log(document.getElementById("start"));
+        	var btn = document.getElementById("start").addEventListener('click',function(){
+        		var val = document.getElementById("count").value;
+        		if(val == '' ){
+        			alert('请输入次数');
+        			return
+        		}
+        		 guess()
+
+        	});
+        	
+        }
+
+	</script>
+	<title></title>
+</head>
+<body>
+  三门问题，请输入竞猜次数<input type="" name="" id="count"> <button id="start">点击生成</button><br>
+  不修改结果中奖次数：<label id="nochange"></label><br>
+  修改结果中奖次数：<label id="change"></label><br>
+
+</body>
+</html>
