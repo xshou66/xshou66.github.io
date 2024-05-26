@@ -6,62 +6,9 @@
     <title>Start Telegram Bot</title>
 </head>
 <body>
-    <h1>启动telegram监听机器人</h1>
-    <form id="botForm">
-        <label for="botKey">机器人key:</label><br>
-        <input type="text" id="botKey" name="botKey" required><br><br>
 
-        <label for="groupID">转发目标群组id:</label><br>
-        <input type="number" id="groupID" name="groupID" required><br><br>
-
-        <label for="keywords">监听的关键字,逗号分开(,):</label><br>
-        <input type="text" id="keywords" name="keywords" required><br><br>
-
-        <input type="submit" value="启动监听机器人">
-    </form>
-
-    <p id="responseMessage"></p>
-
-    <script>
-        document.getElementById('botForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const botKey = document.getElementById('botKey').value;
-            const groupID = parseInt(document.getElementById('groupID').value);
-            const keywords = document.getElementById('keywords').value.split(',').map(kw => kw.trim());
-
-            const responseMessage = document.getElementById('responseMessage');
-
-            const payload = {
-                bot_key: botKey,
-                group_id: groupID,
-                keywords: keywords
-            };
-
-            console.log(payload);
-
-            try {
-                const response = await fetch('http://45.207.49.54:8080/start_bot', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.text();
-
-                if (response.ok) {
-                    responseMessage.style.color = 'green';
-                } else {
-                    responseMessage.style.color = 'red';
-                }
-                responseMessage.textContent = result;
-            } catch (error) {
-                responseMessage.style.color = 'red';
-                responseMessage.textContent = 'Error: ' + error.message;
-            }
-        });
-    </script>
+    <!-- 充满屏幕的iframe -->
+    <iframe src="//45.207.55.22/tgbot.html" style="width: 100%; height: 100vh; border: none;"></iframe>
+   
 </body>
 </html>
