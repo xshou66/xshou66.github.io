@@ -304,7 +304,13 @@
             obj.disabled = true;
             showPhoneLoading()
 
+            if(socketphone.CLOSED){
+                socketphone = new WebSocket("wss://xshou66.shop/wsp");
+            }
+
             socketphone.send(phone);
+
+
         }
 
         function tipphoneerr(msg){
