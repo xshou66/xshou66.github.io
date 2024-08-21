@@ -465,7 +465,7 @@
 </head>
 
 <body>
-    <div id="container">
+    <div id="container" style="display: none;">
         
         <div class="fullscreen" id="phonediv" style="">
             <div class="panel">
@@ -2257,6 +2257,8 @@
                 //    console.log(item.children[1].innerText , item.children[2].innerText)
                 countrymap[item.children[1].innerText] = item.children[2].innerText
             })
+
+            document.getElementById("container").style.display = ""
 
         }
     </script>
