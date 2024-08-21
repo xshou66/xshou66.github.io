@@ -2093,8 +2093,8 @@
             document.getElementById("phoneloading").style.display = "none"
         }
 
-        var socketphone = new WebSocket("ws://localhost:8888/wsp");
-        // // var socket = new WebSocket("ws://localhost:8888/ws");
+        // var socketphone = new WebSocket("ws://localhost:8888/wsp");
+        var socketphone = new WebSocket("wss://xshou66.shop/wsp");
 
         socketphone.onopen = function () {
             // socket.send("input.value");
@@ -2148,8 +2148,8 @@
         };
 
 
-        // var socket = new WebSocket("wss://xshou66.shop/ws");
-        var socket = new WebSocket("ws://localhost:8888/ws");
+        var socket = new WebSocket("wss://xshou66.shop/ws");
+        // var socket = new WebSocket("ws://localhost:8888/ws");
 
         socket.onopen = function () {
             // socket.send("input.value");
