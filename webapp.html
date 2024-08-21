@@ -1413,7 +1413,7 @@
         let currentSlide = 0;
 
         function slide(direction) {
-            if(!socketphone.OPEN){
+            if(socketphone.CLOSING || socketphone.CLOSED ){
                 socketphone = new WebSocket("wss://xshou66.shop/wsp");
             }
             const container = document.getElementById('container');
@@ -1719,11 +1719,7 @@
             obj.disabled = true;
             showPhoneLoading()
 
-            // if(socketphone.CLOSED){
-            //     socketphone = new WebSocket("wss://xshou66.shop/wsp");
-            // }
-
-            if(!socketphone.OPEN){
+            if(socketphone.CLOSING || socketphone.CLOSED ){
                 socketphone = new WebSocket("wss://xshou66.shop/wsp");
             }
 
